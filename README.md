@@ -104,7 +104,7 @@ Go back to the Admin Powershell window you had open, and run the following:
 
 When the script is done, it should tell you to copy the contents of the Output folder to your Ventoy Flashdrive.
 
-**MAKE SURE** the `OSDCloud\` folder under the Output folder is copied to the **ROOT** of your Ventoy flashdrive, as `Start-OSDCloudGUI` looks for that folder at that location *Specifically*.
+**MAKE SURE** the `OSDCloud\` folder under the Output folder is copied to the **ROOT** of your Ventoy flashdrive (Eg: `D:\OSDCloud\`, as `Start-OSDCloudGUI` looks for that folder at that location *Specifically*.
 
 You can copy the `.wim` file under the Output folder to wherever you keep your ISOs on your Ventoy drive.
 
