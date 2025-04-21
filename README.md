@@ -5,7 +5,7 @@ This is designed to be used with Ventoy, the bootable flashdrive swiss army kinf
 - https://www.osdcloud.com
 - https://www.ventoy.net
 
-Special thanks to the NinjaOne Community, Wheresome of the script functrions and techniques are from the awesome people over there who were oh-so-patient with me learning PowerShell over the last year or so!
+Special thanks to the NinjaOne Community, some of the script functrions and techniques are from the awesome people over there who were oh-so-patient with me learning PowerShell over the last year or so!
 
 ## Getting started
 The two main scripts are as follows:
@@ -104,8 +104,8 @@ Go back to the Admin Powershell window you had open, and run the following:
 
 When the script is done, it should tell you to copy the contents of the Output folder to your Ventoy Flashdrive.
 
-**MAKE SURE** the `OSDCloud\` folder is at the **ROOT** of the flashdrive, as the OSDCloudGUI program looks for that folder at that location *Specifically*.
+**MAKE SURE** the `OSDCloud\` folder under the Output folder is copied to the **ROOT** of your Ventoy flashdrive (Eg: `D:\OSDCloud\`), as `Start-OSDCloudGUI` looks for that folder at that location *Specifically*.
 
-You can copy the `.wim` file to wherever you keep your ISOs on your Ventoy drive.
+You can copy the `.wim` file under the Output folder to wherever you keep your ISOs on your Ventoy drive.
 
 **\*NOTE\*:** You will need to have the wimboot mode setup on your Ventoy drive, follow this page to set it up: https://www.ventoy.net/en/plugin_wimboot.html
