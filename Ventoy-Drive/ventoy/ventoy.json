@@ -7,7 +7,7 @@
     "menu_alias": [
         {
             "alias": "ONLINE - Windows PC Setup >>RUN ME<< (AutounattendGUI)",
-            "image": "/ISO's/1_AutounattendGUI.wim"
+            "image": "/1_AutounattendGUI.wim"
         }
     ]
 }
