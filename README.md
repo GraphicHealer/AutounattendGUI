@@ -103,4 +103,4 @@ When the script is done, it should tell you to copy the contents of the Output f
 
 You can copy the `.wim` file to wherever you keep your ISOs on your ventoy drive.
 
-**NOTE:** You will need to have the wimboot mode setup on your Ventoy drive, follow this page to set it up: https://www.ventoy.net/en/plugin_wimboot.html
+**\*NOTE\*:** You will need to have the wimboot mode setup on your Ventoy drive, follow this page to set it up: https://www.ventoy.net/en/plugin_wimboot.html
