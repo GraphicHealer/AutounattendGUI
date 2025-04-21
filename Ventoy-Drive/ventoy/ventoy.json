@@ -1,0 +1,13 @@
+{
+    "control": [
+        {
+            "VTOY_DEFAULT_SEARCH_ROOT": "/ISOs"
+        }
+    ],
+    "menu_alias": [
+        {
+            "alias": "ONLINE - Windows PC Setup >>RUN ME<< (AutounattendGUI)",
+            "image": "/ISO's/1_AutounattendGUI.wim"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "AutounattendXML": ".\\Build-Files\\Autounattend.xml",
+    "Brand": "AutounattendGUI",
+    "DriverHWID": [
+        "VID_2357&PID_011E",
+        "VID_17E9&PID_4307"
+    ],
+    "GUI_JSON": ".\\Build-Files\\Start-OSDCloudGUI.json",
+    "OutPath": ".\\Ventoy-Drive",
+    "WallpaperPath": ".\\Build-Files\\Wallpaper.jpg",
+    "WimName": "1_AutounattendGUI.wim",
+    "WorkspacePath": ".\\AuGUI-Workspace"
+}

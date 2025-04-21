@@ -1,0 +1,22 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_USERS\DefaultUser\Software\Microsoft\Clipboard]
+"EnableClipboardHistory"=dword:00000001
+
+[HKEY_USERS\DefaultUser\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband\AuxilliaryPins]
+"MailPin"=dword:00000002
+"TFLPin"=dword:00000001
+
+[HKEY_USERS\DefaultUser\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"Start_TrackDocs"=dword:00000001
+"Start_AccountNotifications"=dword:00000000
+"Start_IrisReccommendations"=dword:00000001
+
+[HKEY_USERS\DefaultUser\Software\Microsoft\Windows\CurrentVersion\Start]
+"ShowFrequentList"=dword:00000001
+"PlacesInitializedVersion"=dword:00000002
+"ShowRecentList"=dword:00000001
+"VisiblePlaces"=hex:86,08,73,52,aa,51,43,42,9f,7b,27,76,58,46,59,d4,ce,d5,34,\
+  2d,5a,fa,43,45,82,f2,22,e6,ea,f7,77,3c,2f,b3,67,e3,de,89,55,43,bf,ce,61,f3,\
+  7b,18,a9,37,a0,07,3f,38,0a,e8,80,4c,b0,5a,86,db,84,5d,bc,4d,4a,b0,bd,74,4a,\
+  f9,68,4f,8b,d6,43,98,07,1d,a8,bc

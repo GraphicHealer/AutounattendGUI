@@ -1,0 +1,31 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\CI\Policy]
+"SkuPolicyRequired"=dword:00000000
+"WindowsLockdownTrialMode"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
+"AllowClipboardHistory"=dword:00000001
+"NoLocalPasswordResetQuestions"=dword:00000000
+
+[HKEY_CLASSES_ROOT\.html]
+@="htmlfile"
+"Content Type"="text/html"
+"PerceivedType"="text"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore]
+"AutoDownload"=dword:00000002
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"ForceActiveDesktopOn"=dword:00000000
+"NoActiveDesktop"=dword:00000001
+"NoActiveDesktopChanges"=dword:00000001
+"SettingsPageVisibility"="hide:cortana;holographic-audio;maps"
+"HideSCAMeetNow"=dword:00000001
+"ForceClassicControlPanel"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\F15576E8-98B7-4186-B944-EAFA664402D9]
+"Attributes"=dword:00000002
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power]
+"HiberbootEnabled"=dword:00000000

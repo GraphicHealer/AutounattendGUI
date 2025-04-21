@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="utf-8"?>
+<unattend xmlns="urn:schemas-microsoft-com:unattend" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State">
+	<!--https://schneegans.de/windows/unattend-generator/?LanguageMode=Unattended&UILanguage=en-US&Locale=en-US&Keyboard=00000409&GeoLocation=244&ProcessorArchitecture=amd64&BypassRequirementsCheck=true&ComputerNameMode=Random&CompactOsMode=Never&TimeZoneMode=Explicit&TimeZone=Eastern+Standard+Time&PartitionMode=Interactive&DiskAssertionMode=Skip&WindowsEditionMode=Firmware&UserAccountMode=Unattended&AccountName0=User&AccountDisplayName0=&AccountPassword0=&AccountGroup0=Administrators&AccountName1=&AccountName2=&AccountName3=&AutoLogonMode=Own&ObscurePasswords=true&PasswordExpirationMode=Unlimited&LockoutMode=Default&HideFiles=HiddenSystem&ShowFileExtensions=true&ClassicContextMenu=true&TaskbarSearch=Icon&TaskbarIconsMode=Custom&TaskbarIconsXml=%3CLayoutModificationTemplate+xmlns%3D%22http%3A%2F%2Fschemas.microsoft.com%2FStart%2F2014%2FLayoutModification%22+xmlns%3Adefaultlayout%3D%22http%3A%2F%2Fschemas.microsoft.com%2FStart%2F2014%2FFullDefaultLayout%22+xmlns%3Astart%3D%22http%3A%2F%2Fschemas.microsoft.com%2FStart%2F2014%2FStartLayout%22+xmlns%3Ataskbar%3D%22http%3A%2F%2Fschemas.microsoft.com%2FStart%2F2014%2FTaskbarLayout%22+Version%3D%221%22%3E%0D%0A++%3CCustomTaskbarLayoutCollection+PinListPlacement%3D%22Replace%22%3E%0D%0A++++%3Cdefaultlayout%3ATaskbarLayout%3E%0D%0A++++++%3Ctaskbar%3ATaskbarPinList%3E%0D%0A++++++++%3Ctaskbar%3ADesktopApp+DesktopApplicationID%3D%22Microsoft.Windows.Explorer%22+%2F%3E%0D%0A++++++%3C%2Ftaskbar%3ATaskbarPinList%3E%0D%0A++++%3C%2Fdefaultlayout%3ATaskbarLayout%3E%0D%0A++%3C%2FCustomTaskbarLayoutCollection%3E%0D%0A%3C%2FLayoutModificationTemplate%3E&DisableWidgets=true&HideTaskViewButton=true&DisableBingResults=true&StartTilesMode=Empty&StartPinsMode=Custom&StartPinsJson=%7B%0D%0A++%22pinnedList%22%3A+%5B%0D%0A++++%7B%0D%0A++++++%22packagedAppId%22%3A+%22windows.immersivecontrolpanel_cw5n1h2txyewy%21microsoft.windows.immersivecontrolpanel%22%0D%0A++++%7D%2C%0D%0A++++%7B%0D%0A++++++%22desktopAppLink%22%3A+%22%25APPDATA%25%5C%5CMicrosoft%5C%5CWindows%5C%5CStart+Menu%5C%5CPrograms%5C%5CAdministrative+Tools.lnk%22%0D%0A++++%7D%0D%0A++%5D%0D%0A%7D&DisableFastStartup=true&HardenSystemDriveAcl=true&DisableAppSuggestions=true&HideEdgeFre=true&MakeEdgeUninstallable=true&DeleteWindowsOld=true&EffectsMode=Default&DesktopIconsMode=Default&WifiMode=Interactive&ExpressSettings=DisableAll&KeysMode=Configure&CapsLockInitial=Off&CapsLockBehavior=Toggle&NumLockInitial=On&NumLockBehavior=Toggle&ScrollLockInitial=Off&ScrollLockBehavior=Toggle&ColorMode=Default&WallpaperMode=Default&Remove3DViewer=true&RemoveBingSearch=true&RemoveClipchamp=true&RemoveCopilot=true&RemoveCortana=true&RemoveDevHome=true&RemoveFamily=true&RemoveFeedbackHub=true&RemoveGetHelp=true&RemoveInternetExplorer=true&RemoveMailCalendar=true&RemoveMaps=true&RemoveMixedReality=true&RemoveZuneVideo=true&RemoveNews=true&RemoveOpenSSHClient=true&RemoveOutlook=true&RemovePaint=true&RemovePaint3D=true&RemovePeople=true&RemovePowerAutomate=true&RemovePowerShellISE=true&RemoveQuickAssist=true&RemoveRecall=true&RemoveSkype=true&RemoveSolitaire=true&RemoveTeams=true&RemoveGetStarted=true&RemoveToDo=true&RemoveWallet=true&RemoveWeather=true&RemoveWindowsMediaPlayer=true&RemoveXboxApps=true&RemoveYourPhone=true&SystemScript0=Windows+Registry+Editor+Version+5.00%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CCI%5CPolicy%5D%0D%0A%22SkuPolicyRequired%22%3Ddword%3A00000000%0D%0A%22WindowsLockdownTrialMode%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSOFTWARE%5CPolicies%5CMicrosoft%5CWindows%5CSystem%5D%0D%0A%22AllowClipboardHistory%22%3Ddword%3A00000001%0D%0A%22NoLocalPasswordResetQuestions%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_CLASSES_ROOT%5C.html%5D%0D%0A%40%3D%22htmlfile%22%0D%0A%22Content+Type%22%3D%22text%2Fhtml%22%0D%0A%22PerceivedType%22%3D%22text%22%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSOFTWARE%5CPolicies%5CMicrosoft%5CWindowsStore%5D%0D%0A%22AutoDownload%22%3Ddword%3A00000002%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSOFTWARE%5CMicrosoft%5CWindows%5CCurrentVersion%5CPolicies%5CExplorer%5D%0D%0A%22ForceActiveDesktopOn%22%3Ddword%3A00000000%0D%0A%22NoActiveDesktop%22%3Ddword%3A00000001%0D%0A%22NoActiveDesktopChanges%22%3Ddword%3A00000001%0D%0A%22SettingsPageVisibility%22%3D%22hide%3Acortana%3Bholographic-audio%3Bmaps%22%0D%0A%22HideSCAMeetNow%22%3Ddword%3A00000001%0D%0A%22ForceClassicControlPanel%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5CControl%5CPower%5CPowerSettings%5CF15576E8-98B7-4186-B944-EAFA664402D9%5D%0D%0A%22Attributes%22%3Ddword%3A00000002%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5CControl%5CSession+Manager%5CPower%5D%0D%0A%22HiberbootEnabled%22%3Ddword%3A00000000%0D%0A&SystemScriptType0=Reg&DefaultUserScript0=Windows+Registry+Editor+Version+5.00%0D%0A%0D%0A%5BHKEY_USERS%5CDefaultUser%5CSoftware%5CMicrosoft%5CClipboard%5D%0D%0A%22EnableClipboardHistory%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_USERS%5CDefaultUser%5CSoftware%5CMicrosoft%5CWindows%5CCurrentVersion%5CExplorer%5CTaskband%5CAuxilliaryPins%5D%0D%0A%22MailPin%22%3Ddword%3A00000002%0D%0A%22TFLPin%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_USERS%5CDefaultUser%5CSoftware%5CMicrosoft%5CWindows%5CCurrentVersion%5CExplorer%5CAdvanced%5D%0D%0A%22Start_TrackDocs%22%3Ddword%3A00000001%0D%0A%22Start_AccountNotifications%22%3Ddword%3A00000000%0D%0A%22Start_IrisRecommendations%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_USERS%5CDefaultUser%5CSoftware%5CMicrosoft%5CWindows%5CCurrentVersion%5CStart%5D%0D%0A%22ShowFrequentList%22%3Ddword%3A00000001%0D%0A%22PlacesInitializedVersion%22%3Ddword%3A00000002%0D%0A%22ShowRecentList%22%3Ddword%3A00000001%0D%0A%22VisiblePlaces%22%3Dhex%3A86%2C08%2C73%2C52%2Caa%2C51%2C43%2C42%2C9f%2C7b%2C27%2C76%2C58%2C46%2C59%2Cd4%2Cce%2Cd5%2C34%2C%5C%0D%0A++2d%2C5a%2Cfa%2C43%2C45%2C82%2Cf2%2C22%2Ce6%2Cea%2Cf7%2C77%2C3c%2C2f%2Cb3%2C67%2Ce3%2Cde%2C89%2C55%2C43%2Cbf%2Cce%2C61%2Cf3%2C%5C%0D%0A++7b%2C18%2Ca9%2C37%2Ca0%2C07%2C3f%2C38%2C0a%2Ce8%2C80%2C4c%2Cb0%2C5a%2C86%2Cdb%2C84%2C5d%2Cbc%2C4d%2C4a%2Cb0%2Cbd%2C74%2C4a%2C%5C%0D%0A++f9%2C68%2C4f%2C8b%2Cd6%2C43%2C98%2C07%2C1d%2Ca8%2Cbc%0D%0A&DefaultUserScriptType0=Reg&FirstLogonScript0=Set-ExecutionPolicy+Bypass%0D%0AInstall-Script+winget-install+-Force%0D%0Awinget-install+-Force+-AlternateInstallMethod%0D%0ASet-ExecutionPolicy+Restricted%0D%0A&FirstLogonScriptType0=Ps1&FirstLogonScript1=REM%0D%0AREM+Download+setup.exe+from+Repo%0D%0AREM+Check+download+%2F+HASH%0D%0AREM+Remove+Edge%0D%0AREM+Remove+Extras%0D%0AREM+Remove+APPX%0D%0AREM%0D%0A%0D%0Anet+session+%3ENUL+2%3E%261+%7C%7C+%28echo.+%26+echo+Run+Script+As+Admin+%26+echo.+%26+pause+%26+exit%29%0D%0Atitle+Edge+Remover+-+2%2F18%2F2025%0D%0Aset+%22expected%3D4963532e63884a66ecee0386475ee423ae7f7af8a6c6d160cf1237d085adf05e%22%0D%0A%0D%0Aset+%22onHashErr%3Ddownload%22%0D%0A%0D%0Aset+%22fileSetup%3D%25%7Edp0setup.exe%22%0D%0Aif+exist+%22%25fileSetup%25%22+goto+file_check%3B%0D%0Aset+%22fileSetup%3D%25tmp%25%5Csetup.exe%22%0D%0Aif+exist+%22%25fileSetup%25%22+goto+file_check%3B%0D%0A%0D%0A%3Afile_download%0D%0Aset+%22onHashErr%3Derror%22%0D%0Aipconfig+%7C+find+%22IPv%22+%3ENUL%0D%0Aif+%25errorlevel%25+neq+0+echo.+%26+echo+You+are+not+connected+to+a+network+%21+%26+echo.+%26+pause+%26+exit%0D%0A%0D%0Aecho+-+Downloading+Required+File%0D%0Apowershell+-Command+%22try+%7B+%28New-Object+Net.WebClient%29.DownloadFile%28%27https%3A%2F%2Fraw.githubusercontent.com%2FShadowWhisperer%2FRemove-MS-Edge%2Fmain%2F_Source%2Fsetup.exe%27%2C+%27%25fileSetup%25%27%29+%7D+catch+%7B+Write-Host+%27Error+downloading+the+file.%27+%7D%22%0D%0Aif+not+exist+%22%25fileSetup%25%22+echo+File+download+failed.+Check+your+internet+connection+%26+echo+%26+pause+%26+exit%0D%0A%0D%0A%3Afile_check%0D%0Apowershell+-Command+%22exit+%28%28Get-FileHash+%27%25fileSetup%25%27+-Algorithm+SHA256%29.Hash.ToLower%28%29+-ne+%27%25expected%25%27%29%22%0D%0Aif+%25errorlevel%25+neq+0+goto+file_%25onHashErr%25%0D%0Aecho.+%26+goto+uninst_edge%0D%0A%0D%0A%3Afile_error%0D%0Aecho+File+hash+does+not+match+the+expected+value.+%26+echo+%26+pause+%26+exit%0D%0A%0D%0A%0D%0AREM+%23Edge%0D%0A%3Auninst_edge%0D%0Aecho+-+Removing+Edge%0D%0Awhere+%2Fq+%22%25ProgramFiles%28x86%29%25%5CMicrosoft%5CEdge%5CApplication%3A*%22%0D%0Aif+%25errorlevel%25+neq+0+goto+uninst_wv%0D%0Astart+%2Fw+%22%22+%22%25fileSetup%25%22+%2D%2Duninstall+%2D%2Dsystem-level+%2D%2Dforce-uninstall%0D%0A%0D%0AREM+%23WebView%0D%0A%3Auninst_wv%0D%0Aecho+-+Removing+WebView%0D%0Awhere+%2Fq+%22%25ProgramFiles%28x86%29%25%5CMicrosoft%5CEdgeWebView%5CApplication%3A*%22%0D%0Aif+%25errorlevel%25+neq+0+goto+cleanup_wv_junk%0D%0Astart+%2Fw+%22%22+%22%25fileSetup%25%22+%2D%2Duninstall+%2D%2Dmsedgewebview+%2D%2Dsystem-level+%2D%2Dforce-uninstall%0D%0AREM+Delete+empty+folders%0D%0A%3Acleanup_wv_junk%0D%0AREM+rd+%2Fs+%2Fq+%22%25ProgramFiles%28x86%29%25%5CMicrosoft%5CEdgeWebView%22+%3ENUL+2%3E%261%0D%0Afor+%2Ff+%22delims%3D%22+%25%25d+in+%28%27dir+%2Fad+%2Fb+%2Fs+%22%25ProgramFiles%28x86%29%25%5CMicrosoft%5CEdgeWebView%22+2%5E%3ENUL+%5E%7C+sort+%2Fr%27%29+do+rd+%22%25%25d%22+2%3ENUL%0D%0A%0D%0A%0D%0A%0D%0AREM+%23Additional+Files%0D%0A%0D%0AREM+Desktop+icon%0D%0A%3Ausers_cleanup%0D%0Aecho+-+Removing+Additional+Files%0D%0A%0D%0Aset+%22REG_USERS_PATH%3DHKLM%5CSOFTWARE%5CMicrosoft%5CWindows+NT%5CCurrentVersion%5CProfileList%22%0D%0Afor+%2Ff+%22skip%3D2+tokens%3D2*%22+%25%25c+in+%28%27reg+query+%22%25REG_USERS_PATH%25%22+%2Fv+Public%27%29+do+%28+call+%3Auser_rem_lnks_by_path+%25%25d+%29%0D%0Afor+%2Ff+%22skip%3D2+tokens%3D2*%22+%25%25c+in+%28%27reg+query+%22%25REG_USERS_PATH%25%22+%2Fv+Default%27%29+do+%28+call+%3Auser_rem_lnks_by_path+%25%25d+%29%0D%0Afor+%2Ff+%22skip%3D1+tokens%3D7+delims%3D%5C%22+%25%25k+in+%28%27reg+query+%22%25REG_USERS_PATH%25%22+%2Fk+%2Ff+%22*%22%27%29+do+%28+call+%3Auser_rem_lnks_by_sid+%25%25k+%29%0D%0Agoto+users_done%0D%0A%0D%0A%3Auser_rem_lnks_by_sid%0D%0Aif+%22%251%22%3D%3D%22S-1-5-18%22+goto+user_end%0D%0Aif+%22%251%22%3D%3D%22S-1-5-19%22+goto+user_end%0D%0Aif+%22%251%22%3D%3D%22S-1-5-20%22+goto+user_end%0D%0Afor+%2Ff+%22skip%3D2+tokens%3D2*%22+%25%25c+in+%28%27reg+query+%22%25REG_USERS_PATH%25%5C%251%22+%2Fv+ProfileImagePath%27%29+do+%28%0D%0A%09call+%3Auser_rem_lnks_by_path+%25%25d%0D%0A%09if+%22%25UserProfile%25%22%3D%3D%22%25%25d%22+set+%22USER_SID%3D%251%22%0D%0A%29%0D%0Agoto+user_end%0D%0A%0D%0A%3Auser_rem_lnks_by_path%0D%0Adel+%2Fs+%2Fq+%22%251%5CDesktop%5Cedge.lnk%22+%3ENUL+2%3E%261%0D%0Adel+%2Fs+%2Fq+%22%251%5CDesktop%5CMicrosoft+Edge.lnk%22+%3ENUL+2%3E%261%0D%0A%0D%0A%3Auser_end%0D%0Aexit+%2Fb+0%0D%0A%0D%0A%3Ausers_done%0D%0A%0D%0AREM+System32%0D%0Aif+exist+%22%25SystemRoot%25%5CSystem32%5CMicrosoftEdgeCP.exe%22+%28%0D%0Afor+%2Ff+%22delims%3D%22+%25%25a+in+%28%27dir+%2Fb+%22%25SystemRoot%25%5CSystem32%5CMicrosoftEdge*%22%27%29+do+%28%0D%0A+takeown+%2Ff+%22%25SystemRoot%25%5CSystem32%5C%25%25a%22+%3ENUL+2%3E%261%0D%0A+icacls+%22%25SystemRoot%25%5CSystem32%5C%25%25a%22+%2Finheritance%3Ae+%2Fgrant+%22%25UserName%25%3A%28OI%29%28CI%29F%22+%2FT+%2FC+%3ENUL+2%3E%261%0D%0A+del+%2FS+%2FQ+%22%25SystemRoot%25%5CSystem32%5C%25%25a%22+%3ENUL+2%3E%261%29%29%0D%0A%0D%0AREM+Folders%0D%0Ataskkill+%2Fim+MicrosoftEdgeUpdate.exe+%2Ff+%3ENUL+2%3E%261%0D%0Ard+%2Fs+%2Fq+%22%25ProgramFiles%28x86%29%25%5CMicrosoft%5CEdge%22+%3ENUL+2%3E%261%0D%0Ard+%2Fs+%2Fq+%22%25ProgramFiles%28x86%29%25%5CMicrosoft%5CEdgeCore%22+%3ENUL+2%3E%261%0D%0Ard+%2Fs+%2Fq+%22%25ProgramFiles%28x86%29%25%5CMicrosoft%5CEdgeUpdate%22+%3ENUL+2%3E%261%0D%0Ard+%2Fs+%2Fq+%22%25ProgramFiles%28x86%29%25%5CMicrosoft%5CTemp+%3ENUL+2%3E%261%0D%0Ard+%2Fs+%2Fq+%22%25AllUsersProfile%25%5CMicrosoft%5CEdgeUpdate%22+%3ENUL+2%3E%261%0D%0A%0D%0AREM+Files%0D%0Adel+%2Fs+%2Fq+%22%25AllUsersProfile%25%5CMicrosoft%5CWindows%5CStart+Menu%5CPrograms%5CMicrosoft+Edge.lnk%22+%3ENUL+2%3E%261%0D%0A%0D%0AREM+Registry%0D%0Areg+delete+%22HKLM%5CSOFTWARE%5CMicrosoft%5CActive+Setup%5CInstalled+Components%5C%7B9459C573-B17A-45AE-9F64-1857B5D58CEE%7D%22+%2Ff+%3ENUL+2%3E%261%0D%0Areg+delete+%22HKLM%5CSOFTWARE%5CWOW6432Node%5CMicrosoft%5CEdge%22+%2Ff+%3ENUL+2%3E%261%0D%0A%0D%0AREM+Tasks+-+Files%0D%0Afor+%2Fr+%22%25SystemRoot%25%5CSystem32%5CTasks%22+%25%25f+in+%28*MicrosoftEdge*%29+do+del+%22%25%25f%22+%3ENUL+2%3E%261%0D%0A%0D%0AREM+Tasks+-+Name%0D%0Afor+%2Ff+%22skip%3D1+tokens%3D1+delims%3D%2C%22+%25%25a+in+%28%27schtasks+%2Fquery+%2Ffo+csv%27%29+do+%28%0D%0Afor+%25%25b+in+%28%25%25a%29+do+%28%0D%0A+if+%22%25%25b%22%3D%3D%22MicrosoftEdge%22+schtasks+%2Fdelete+%2Ftn+%22%25%25%7Ea%22+%2Ff+%3ENUL+2%3E%261%29%29%0D%0A%0D%0AREM+Update+Services%0D%0Aset+%22service_names%3Dedgeupdate+edgeupdatem%22%0D%0Afor+%25%25n+in+%28%25service_names%25%29+do+%28%0D%0A+sc+stop+%25%25n+%3ENUL+2%3E%261%0D%0A+sc+delete+%25%25n+%3ENUL+2%3E%261%0D%0A+reg+delete+%22HKLM%5CSYSTEM%5CCurrentControlSet%5CServices%5C%25%25n%22+%2Ff+%3ENUL+2%3E%261%0D%0A%29%0D%0A%0D%0A%0D%0AREM+%23APPX%0D%0Aecho+-+Removing+APPX%0D%0A%0D%0Aif+defined+USER_SID+goto+rem_appX%0D%0Afor+%2Ff+%22delims%3D%22+%25%25a+in+%28%27powershell+%22%28New-Object+System.Security.Principal.NTAccount%28%24env%3AUSERNAME%29%29.Translate%28%5BSystem.Security.Principal.SecurityIdentifier%5D%29.Value%22%27%29+do+set+%22USER_SID%3D%25%25a%22%0D%0A%0D%0A%3Arem_appX%0D%0Aset+%22REG_APPX_STORE%3DHKLM%5CSOFTWARE%5CMicrosoft%5CWindows%5CCurrentVersion%5CAppx%5CAppxAllUserStore%22%0D%0Afor+%2Ff+%22delims%3D%22+%25%25a+in+%28%27powershell+-NoProfile+-Command+%22Get-AppxPackage+-AllUsers+%7C+Where-Object+%7B+%24_.PackageFullName+-like+%27*microsoftedge*%27+%7D+%7C+Select-Object+-ExpandProperty+PackageFullName%22%27%29+do+%28%0D%0A++++if+not+%22%25%25a%22%3D%3D%22%22+%28%0D%0A++++++++reg+add+%22%25REG_APPX_STORE%25%5CEndOfLife%5C%25USER_SID%25%5C%25%25a%22+%2Ff+%3ENUL+2%3E%261%0D%0A++++++++reg+add+%22%25REG_APPX_STORE%25%5CEndOfLife%5CS-1-5-18%5C%25%25a%22+%2Ff+%3ENUL+2%3E%261%0D%0A++++++++reg+add+%22%25REG_APPX_STORE%25%5CDeprovisioned%5C%25%25a%22+%2Ff+%3ENUL+2%3E%261%0D%0A++++++++powershell+-Command+%22Remove-AppxPackage+-Package+%27%25%25a%27%22+2%3ENUL%0D%0A++++++++powershell+-Command+%22Remove-AppxPackage+-Package+%27%25%25a%27+-AllUsers%22+2%3ENUL%0D%0A++++%29%0D%0A%29%0D%0A%0D%0AREM+%25SystemRoot%25%5CSystemApps%5CMicrosoft.MicrosoftEdge*%0D%0Afor+%2Fd+%25%25d+in+%28%22%25SystemRoot%25%5CSystemApps%5CMicrosoft.MicrosoftEdge*%22%29+do+%28%0D%0A+takeown+%2Ff+%22%25%25d%22+%2Fr+%2Fd+y+%3ENUL+2%3E%261%0D%0A+icacls+%22%25%25d%22+%2Fgrant+administrators%3AF+%2Ft+%3ENUL+2%3E%261%0D%0A+rd+%2Fs+%2Fq+%22%25%25d%22+%3ENUL+2%3E%261%29&FirstLogonScriptType1=Cmd&FirstLogonScript2=%24AppList+%3D+%40%28%0D%0A++++%27Microsoft.EdgeWebView2Runtime%27%2C%0D%0A++++%27M2Team.NanaZip%27%2C%0D%0A++++%27Google.Chrome%27%2C%0D%0A++++%27Mozilla.Firefox%27%2C%0D%0A++++%27PDFgear.PDFgear%27%2C%0D%0A++++%27TheDocumentFoundation.LibreOffice%27%2C%0D%0A++++%27VideoLAN.VLC%27%2C%0D%0A++++%27CodecGuide.K-LiteCodecPack.Mega%27%2C%0D%0A++++%27Notepad%2B%2B.Notepad%2B%2B%27%0D%0A%29%0D%0A%0D%0Aforeach+%28%24App+in+%24AppList%29+%7B%0D%0A%0D%0A++++%24Args+%3D+%40%28%0D%0A++++++++%27install%27%2C%0D%0A++++++++%27%2D%2Dscope%3Dmachine%27%2C%0D%0A++++++++%27%2D%2Daccept-source-agreements%27%2C%0D%0A++++++++%27%2D%2Daccept-package-agreements%27%2C%0D%0A++++++++%27%2D%2Dforce%27%2C%0D%0A++++++++%27%2D%2Dsilent%27%2C%0D%0A++++++++%27-e%27%2C%0D%0A++++++++%27%2D%2Did%27%2C%0D%0A++++++++%24App%0D%0A++++%29%0D%0A%0D%0A++++%26+winget+%24Args%0D%0A%7D%0D%0A&FirstLogonScriptType2=Ps1&WdacMode=Skip-->
+	<settings pass="offlineServicing"></settings>
+	<settings pass="windowsPE">
+		<component name="Microsoft-Windows-International-Core-WinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+			<SetupUILanguage>
+				<UILanguage>en-US</UILanguage>
+			</SetupUILanguage>
+			<InputLocale>0409:00000409</InputLocale>
+			<SystemLocale>en-US</SystemLocale>
+			<UILanguage>en-US</UILanguage>
+			<UserLocale>en-US</UserLocale>
+		</component>
+		<component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+			<ImageInstall>
+				<OSImage>
+					<Compact>false</Compact>
+				</OSImage>
+			</ImageInstall>
+			<UserData>
+				<ProductKey>
+					<Key>00000-00000-00000-00000-00000</Key>
+					<WillShowUI>OnError</WillShowUI>
+				</ProductKey>
+				<AcceptEula>true</AcceptEula>
+			</UserData>
+			<UseConfigurationSet>false</UseConfigurationSet>
+			<RunSynchronous>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>1</Order>
+					<Path>reg.exe add "HKLM\SYSTEM\Setup\LabConfig" /v BypassTPMCheck /t REG_DWORD /d 1 /f</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>2</Order>
+					<Path>reg.exe add "HKLM\SYSTEM\Setup\LabConfig" /v BypassSecureBootCheck /t REG_DWORD /d 1 /f</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>3</Order>
+					<Path>reg.exe add "HKLM\SYSTEM\Setup\LabConfig" /v BypassRAMCheck /t REG_DWORD /d 1 /f</Path>
+				</RunSynchronousCommand>
+			</RunSynchronous>
+		</component>
+	</settings>
+	<settings pass="generalize"></settings>
+	<settings pass="specialize">
+		<component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+			<RunSynchronous>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>1</Order>
+					<Path>powershell.exe -WindowStyle Normal -NoProfile -Command "$xml = [xml]::new(); $xml.Load('C:\Windows\Panther\unattend.xml'); $sb = [scriptblock]::Create( $xml.unattend.Extensions.ExtractScript ); Invoke-Command -ScriptBlock $sb -ArgumentList $xml;"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>2</Order>
+					<Path>powershell.exe -WindowStyle Normal -NoProfile -Command "Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\Specialize.ps1' -Raw | Invoke-Expression;"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>3</Order>
+					<Path>reg.exe load "HKU\DefaultUser" "C:\Users\Default\NTUSER.DAT"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>4</Order>
+					<Path>powershell.exe -WindowStyle Normal -NoProfile -Command "Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\DefaultUser.ps1' -Raw | Invoke-Expression;"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>5</Order>
+					<Path>reg.exe unload "HKU\DefaultUser"</Path>
+				</RunSynchronousCommand>
+			</RunSynchronous>
+		</component>
+		<component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+			<TimeZone>Eastern Standard Time</TimeZone>
+		</component>
+	</settings>
+	<settings pass="auditSystem"></settings>
+	<settings pass="auditUser"></settings>
+	<settings pass="oobeSystem">
+		<component name="Microsoft-Windows-International-Core" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+			<InputLocale>0409:00000409</InputLocale>
+			<SystemLocale>en-US</SystemLocale>
+			<UILanguage>en-US</UILanguage>
+			<UserLocale>en-US</UserLocale>
+		</component>
+		<component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+			<UserAccounts>
+				<LocalAccounts>
+					<LocalAccount wcm:action="add">
+						<Name>User</Name>
+						<DisplayName></DisplayName>
+						<Group>Administrators</Group>
+						<Password>
+							<Value>UABhAHMAcwB3AG8AcgBkAA==</Value>
+							<PlainText>false</PlainText>
+						</Password>
+					</LocalAccount>
+				</LocalAccounts>
+			</UserAccounts>
+			<AutoLogon>
+				<Username>User</Username>
+				<Enabled>true</Enabled>
+				<LogonCount>1</LogonCount>
+				<Password>
+					<Value>UABhAHMAcwB3AG8AcgBkAA==</Value>
+					<PlainText>false</PlainText>
+				</Password>
+			</AutoLogon>
+			<OOBE>
+				<ProtectYourPC>3</ProtectYourPC>
+				<HideEULAPage>true</HideEULAPage>
+				<HideWirelessSetupInOOBE>false</HideWirelessSetupInOOBE>
+				<HideOnlineAccountScreens>false</HideOnlineAccountScreens>
+			</OOBE>
+			<FirstLogonCommands>
+				<SynchronousCommand wcm:action="add">
+					<Order>1</Order>
+					<CommandLine>powershell.exe -WindowStyle Normal -NoProfile -Command "Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\FirstLogon.ps1' -Raw | Invoke-Expression;"</CommandLine>
+				</SynchronousCommand>
+			</FirstLogonCommands>
+		</component>
+	</settings>
+	<Extensions xmlns="https://schneegans.de/windows/unattend-generator/">
+		<ExtractScript>
+param(
+    [xml] $Document
+);
+
+foreach( $file in $Document.unattend.Extensions.File ) {
+    $path = [System.Environment]::ExpandEnvironmentVariables( $file.GetAttribute( 'path' ) );
+    mkdir -Path( $path | Split-Path -Parent ) -ErrorAction 'SilentlyContinue';
+    $encoding = switch( [System.IO.Path]::GetExtension( $path ) ) {
+        { $_ -in '.ps1', '.xml' } { [System.Text.Encoding]::UTF8; }
+        { $_ -in '.reg', '.vbs', '.js' } { [System.Text.UnicodeEncoding]::new( $false, $true ); }
+        default { [System.Text.Encoding]::Default; }
+    };
+    $bytes = $encoding.GetPreamble() + $encoding.GetBytes( $file.InnerText.Trim() );
+    [System.IO.File]::WriteAllBytes( $path, $bytes );
+}
+		</ExtractScript>
+		<File path="C:\Windows\Setup\Scripts\RemovePackages.ps1">
+$selectors = @(
+	'Microsoft.Microsoft3DViewer';
+	'Microsoft.BingSearch';
+	'Clipchamp.Clipchamp';
+	'Microsoft.549981C3F5F10';
+	'Microsoft.Windows.DevHome';
+	'MicrosoftCorporationII.MicrosoftFamily';
+	'Microsoft.WindowsFeedbackHub';
+	'Microsoft.GetHelp';
+	'Microsoft.Getstarted';
+	'microsoft.windowscommunicationsapps';
+	'Microsoft.WindowsMaps';
+	'Microsoft.MixedReality.Portal';
+	'Microsoft.BingNews';
+	'Microsoft.OutlookForWindows';
+	'Microsoft.Paint';
+	'Microsoft.MSPaint';
+	'Microsoft.People';
+	'Microsoft.PowerAutomateDesktop';
+	'MicrosoftCorporationII.QuickAssist';
+	'Microsoft.SkypeApp';
+	'Microsoft.MicrosoftSolitaireCollection';
+	'MicrosoftTeams';
+	'MSTeams';
+	'Microsoft.Todos';
+	'Microsoft.Wallet';
+	'Microsoft.BingWeather';
+	'Microsoft.Xbox.TCUI';
+	'Microsoft.XboxApp';
+	'Microsoft.XboxGameOverlay';
+	'Microsoft.XboxGamingOverlay';
+	'Microsoft.XboxIdentityProvider';
+	'Microsoft.XboxSpeechToTextOverlay';
+	'Microsoft.GamingApp';
+	'Microsoft.YourPhone';
+	'Microsoft.ZuneVideo';
+);
+$getCommand = {
+  Get-AppxProvisionedPackage -Online;
+};
+$filterCommand = {
+  $_.DisplayName -eq $selector;
+};
+$removeCommand = {
+  [CmdletBinding()]
+  param(
+    [Parameter( Mandatory, ValueFromPipeline )]
+    $InputObject
+  );
+  process {
+    $InputObject | Remove-AppxProvisionedPackage -AllUsers -Online -ErrorAction 'Continue';
+  }
+};
+$type = 'Package';
+$logfile = 'C:\Windows\Setup\Scripts\RemovePackages.log';
+&amp; {
+	$installed = &amp; $getCommand;
+	foreach( $selector in $selectors ) {
+		$result = [ordered] @{
+			Selector = $selector;
+		};
+		$found = $installed | Where-Object -FilterScript $filterCommand;
+		if( $found ) {
+			$result.Output = $found | &amp; $removeCommand;
+			if( $? ) {
+				$result.Message = "$type removed.";
+			} else {
+				$result.Message = "$type not removed.";
+				$result.Error = $Error[0];
+			}
+		} else {
+			$result.Message = "$type not installed.";
+		}
+		$result | ConvertTo-Json -Depth 3 -Compress;
+	}
+} *&gt;&amp;1 &gt;&gt; $logfile;
+		</File>
+		<File path="C:\Windows\Setup\Scripts\RemoveCapabilities.ps1">
+$selectors = @(
+	'Browser.InternetExplorer';
+	'OpenSSH.Client';
+	'Microsoft.Windows.MSPaint';
+	'Microsoft.Windows.PowerShell.ISE';
+	'App.Support.QuickAssist';
+	'Media.WindowsMediaPlayer';
+);
+$getCommand = {
+  Get-WindowsCapability -Online | Where-Object -Property 'State' -NotIn -Value @(
+    'NotPresent';
+    'Removed';
+  );
+};
+$filterCommand = {
+  ($_.Name -split '~')[0] -eq $selector;
+};
+$removeCommand = {
+  [CmdletBinding()]
+  param(
+    [Parameter( Mandatory, ValueFromPipeline )]
+    $InputObject
+  );
+  process {
+    $InputObject | Remove-WindowsCapability -Online -ErrorAction 'Continue';
+  }
+};
+$type = 'Capability';
+$logfile = 'C:\Windows\Setup\Scripts\RemoveCapabilities.log';
+&amp; {
+	$installed = &amp; $getCommand;
+	foreach( $selector in $selectors ) {
+		$result = [ordered] @{
+			Selector = $selector;
+		};
+		$found = $installed | Where-Object -FilterScript $filterCommand;
+		if( $found ) {
+			$result.Output = $found | &amp; $removeCommand;
+			if( $? ) {
+				$result.Message = "$type removed.";
+			} else {
+				$result.Message = "$type not removed.";
+				$result.Error = $Error[0];
+			}
+		} else {
+			$result.Message = "$type not installed.";
+		}
+		$result | ConvertTo-Json -Depth 3 -Compress;
+	}
+} *&gt;&amp;1 &gt;&gt; $logfile;
+		</File>
+		<File path="C:\Windows\Setup\Scripts\RemoveFeatures.ps1">
+$selectors = @(
+	'Recall';
+);
+$getCommand = {
+  Get-WindowsOptionalFeature -Online | Where-Object -Property 'State' -NotIn -Value @(
+    'Disabled';
+    'DisabledWithPayloadRemoved';
+  );
+};
+$filterCommand = {
+  $_.FeatureName -eq $selector;
+};
+$removeCommand = {
+  [CmdletBinding()]
+  param(
+    [Parameter( Mandatory, ValueFromPipeline )]
+    $InputObject
+  );
+  process {
+    $InputObject | Disable-WindowsOptionalFeature -Online -Remove -NoRestart -ErrorAction 'Continue';
+  }
+};
+$type = 'Feature';
+$logfile = 'C:\Windows\Setup\Scripts\RemoveFeatures.log';
+&amp; {
+	$installed = &amp; $getCommand;
+	foreach( $selector in $selectors ) {
+		$result = [ordered] @{
+			Selector = $selector;
+		};
+		$found = $installed | Where-Object -FilterScript $filterCommand;
+		if( $found ) {
+			$result.Output = $found | &amp; $removeCommand;
+			if( $? ) {
+				$result.Message = "$type removed.";
+			} else {
+				$result.Message = "$type not removed.";
+				$result.Error = $Error[0];
+			}
+		} else {
+			$result.Message = "$type not installed.";
+		}
+		$result | ConvertTo-Json -Depth 3 -Compress;
+	}
+} *&gt;&amp;1 &gt;&gt; $logfile;
+		</File>
+		<File path="C:\Windows\Setup\Scripts\TaskbarLayoutModification.xml">
+&lt;LayoutModificationTemplate xmlns="http://schemas.microsoft.com/Start/2014/LayoutModification" xmlns:defaultlayout="http://schemas.microsoft.com/Start/2014/FullDefaultLayout" xmlns:start="http://schemas.microsoft.com/Start/2014/StartLayout" xmlns:taskbar="http://schemas.microsoft.com/Start/2014/TaskbarLayout" Version="1"&gt;
+	&lt;CustomTaskbarLayoutCollection PinListPlacement="Replace"&gt;
+		&lt;defaultlayout:TaskbarLayout&gt;
+			&lt;taskbar:TaskbarPinList&gt;
+				&lt;taskbar:DesktopApp DesktopApplicationID="Microsoft.Windows.Explorer" /&gt;
+			&lt;/taskbar:TaskbarPinList&gt;
+		&lt;/defaultlayout:TaskbarLayout&gt;
+	&lt;/CustomTaskbarLayoutCollection&gt;
+&lt;/LayoutModificationTemplate&gt;
+		</File>
+		<File path="C:\Windows\Setup\Scripts\UnlockStartLayout.vbs">
+HKU = &amp;H80000003
+Set reg = GetObject("winmgmts://./root/default:StdRegProv")
+Set fso = CreateObject("Scripting.FileSystemObject")
+
+If reg.EnumKey(HKU, "", sids) = 0 Then
+	If Not IsNull(sids) Then
+		For Each sid In sids
+			key = sid + "\Software\Policies\Microsoft\Windows\Explorer"
+			name = "LockedStartLayout"
+			If reg.GetDWORDValue(HKU, key, name, existing) = 0 Then
+				reg.SetDWORDValue HKU, key, name, 0
+			End If
+		Next
+	End If
+End If
+		</File>
+		<File path="C:\Windows\Setup\Scripts\UnlockStartLayout.xml">
+&lt;Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task"&gt;
+	&lt;Triggers&gt;
+		&lt;EventTrigger&gt;
+			&lt;Enabled&gt;true&lt;/Enabled&gt;
+			&lt;Subscription&gt;&amp;lt;QueryList&amp;gt;&amp;lt;Query Id="0" Path="Application"&amp;gt;&amp;lt;Select Path="Application"&amp;gt;*[System[Provider[@Name='UnattendGenerator'] and EventID=1]]&amp;lt;/Select&amp;gt;&amp;lt;/Query&amp;gt;&amp;lt;/QueryList&amp;gt;&lt;/Subscription&gt;
+		&lt;/EventTrigger&gt;
+	&lt;/Triggers&gt;
+	&lt;Principals&gt;
+		&lt;Principal id="Author"&gt;
+			&lt;UserId&gt;S-1-5-18&lt;/UserId&gt;
+			&lt;RunLevel&gt;LeastPrivilege&lt;/RunLevel&gt;
+		&lt;/Principal&gt;
+	&lt;/Principals&gt;
+	&lt;Settings&gt;
+		&lt;MultipleInstancesPolicy&gt;IgnoreNew&lt;/MultipleInstancesPolicy&gt;
+		&lt;DisallowStartIfOnBatteries&gt;false&lt;/DisallowStartIfOnBatteries&gt;
+		&lt;StopIfGoingOnBatteries&gt;false&lt;/StopIfGoingOnBatteries&gt;
+		&lt;AllowHardTerminate&gt;true&lt;/AllowHardTerminate&gt;
+		&lt;StartWhenAvailable&gt;false&lt;/StartWhenAvailable&gt;
+		&lt;RunOnlyIfNetworkAvailable&gt;false&lt;/RunOnlyIfNetworkAvailable&gt;
+		&lt;IdleSettings&gt;
+			&lt;StopOnIdleEnd&gt;true&lt;/StopOnIdleEnd&gt;
+			&lt;RestartOnIdle&gt;false&lt;/RestartOnIdle&gt;
+		&lt;/IdleSettings&gt;
+		&lt;AllowStartOnDemand&gt;true&lt;/AllowStartOnDemand&gt;
+		&lt;Enabled&gt;true&lt;/Enabled&gt;
+		&lt;Hidden&gt;false&lt;/Hidden&gt;
+		&lt;RunOnlyIfIdle&gt;false&lt;/RunOnlyIfIdle&gt;
+		&lt;WakeToRun&gt;false&lt;/WakeToRun&gt;
+		&lt;ExecutionTimeLimit&gt;PT72H&lt;/ExecutionTimeLimit&gt;
+		&lt;Priority&gt;7&lt;/Priority&gt;
+	&lt;/Settings&gt;
+	&lt;Actions Context="Author"&gt;
+		&lt;Exec&gt;
+			&lt;Command&gt;C:\Windows\System32\wscript.exe&lt;/Command&gt;
+			&lt;Arguments&gt;C:\Windows\Setup\Scripts\UnlockStartLayout.vbs&lt;/Arguments&gt;
+		&lt;/Exec&gt;
+	&lt;/Actions&gt;
+&lt;/Task&gt;
+		</File>
+		<File path="C:\Windows\Setup\Scripts\MakeEdgeUninstallable.ps1">
+$ErrorActionPreference = 'Stop';
+&amp; {
+	try {
+		$params = @{
+			LiteralPath = 'C:\Windows\System32\IntegratedServicesRegionPolicySet.json';
+			Encoding = 'Utf8';
+		};
+		$o = Get-Content @params | ConvertFrom-Json;
+		$o.policies | ForEach-Object -Process {
+			if( $_.guid -eq '{1bca278a-5d11-4acf-ad2f-f9ab6d7f93a6}' ) {
+				$_.defaultState = 'enabled';
+			}
+		};
+		$o | ConvertTo-Json -Depth 9 | Out-File @params;
+	} catch {
+		$_;
+	}
+} *&gt;&amp;1 &gt;&gt; 'C:\Windows\Setup\Scripts\MakeEdgeUninstallable.log';
+		</File>
+		<File path="C:\Windows\Setup\Scripts\SetStartPins.ps1">
+$json = '{
+  "pinnedList": [
+    {
+      "packagedAppId": "windows.immersivecontrolpanel_cw5n1h2txyewy!microsoft.windows.immersivecontrolpanel"
+    },
+    {
+      "desktopAppLink": "%APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\Administrative Tools.lnk"
+    }
+  ]
+}';
+if( [System.Environment]::OSVersion.Version.Build -lt 20000 ) {
+	return;
+}
+$key = 'Registry::HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start';
+New-Item -Path $key -ItemType 'Directory' -ErrorAction 'SilentlyContinue';
+Set-ItemProperty -LiteralPath $key -Name 'ConfigureStartPins' -Value $json -Type 'String';
+		</File>
+		<File path="C:\Users\Default\AppData\Local\Microsoft\Windows\Shell\LayoutModification.xml">
+&lt;LayoutModificationTemplate Version="1" xmlns="http://schemas.microsoft.com/Start/2014/LayoutModification"&gt;
+	&lt;LayoutOptions StartTileGroupCellWidth="6" /&gt;
+	&lt;DefaultLayoutOverride&gt;
+		&lt;StartLayoutCollection&gt;
+			&lt;StartLayout GroupCellWidth="6" xmlns="http://schemas.microsoft.com/Start/2014/FullDefaultLayout" /&gt;
+		&lt;/StartLayoutCollection&gt;
+	&lt;/DefaultLayoutOverride&gt;
+&lt;/LayoutModificationTemplate&gt;
+		</File>
+		<File path="C:\Windows\Setup\Scripts\unattend-01.reg">
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\CI\Policy]
+"SkuPolicyRequired"=dword:00000000
+"WindowsLockdownTrialMode"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
+"AllowClipboardHistory"=dword:00000001
+"NoLocalPasswordResetQuestions"=dword:00000000
+
+[HKEY_CLASSES_ROOT\.html]
+@="htmlfile"
+"Content Type"="text/html"
+"PerceivedType"="text"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsStore]
+"AutoDownload"=dword:00000002
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"ForceActiveDesktopOn"=dword:00000000
+"NoActiveDesktop"=dword:00000001
+"NoActiveDesktopChanges"=dword:00000001
+"SettingsPageVisibility"="hide:cortana;holographic-audio;maps"
+"HideSCAMeetNow"=dword:00000001
+"ForceClassicControlPanel"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\F15576E8-98B7-4186-B944-EAFA664402D9]
+"Attributes"=dword:00000002
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power]
+"HiberbootEnabled"=dword:00000000
+		</File>
+		<File path="C:\Windows\Setup\Scripts\unattend-02.ps1">
+Set-ExecutionPolicy Bypass
+Install-Script winget-install -Force
+winget-install -Force -AlternateInstallMethod
+Set-ExecutionPolicy Restricted
+		</File>
+		<File path="C:\Windows\Setup\Scripts\unattend-03.cmd">
+REM
+REM Download setup.exe from Repo
+REM Check download / HASH
+REM Remove Edge
+REM Remove Extras
+REM Remove APPX
+REM
+
+net session &gt;NUL 2&gt;&amp;1 || (echo. &amp; echo Run Script As Admin &amp; echo. &amp; pause &amp; exit)
+title Edge Remover - 2/18/2025
+set "expected=4963532e63884a66ecee0386475ee423ae7f7af8a6c6d160cf1237d085adf05e"
+
+set "onHashErr=download"
+
+set "fileSetup=%~dp0setup.exe"
+if exist "%fileSetup%" goto file_check;
+set "fileSetup=%tmp%\setup.exe"
+if exist "%fileSetup%" goto file_check;
+
+:file_download
+set "onHashErr=error"
+ipconfig | find "IPv" &gt;NUL
+if %errorlevel% neq 0 echo. &amp; echo You are not connected to a network ! &amp; echo. &amp; pause &amp; exit
+
+echo - Downloading Required File
+powershell -Command "try { (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/ShadowWhisperer/Remove-MS-Edge/main/_Source/setup.exe', '%fileSetup%') } catch { Write-Host 'Error downloading the file.' }"
+if not exist "%fileSetup%" echo File download failed. Check your internet connection &amp; echo &amp; pause &amp; exit
+
+:file_check
+powershell -Command "exit ((Get-FileHash '%fileSetup%' -Algorithm SHA256).Hash.ToLower() -ne '%expected%')"
+if %errorlevel% neq 0 goto file_%onHashErr%
+echo. &amp; goto uninst_edge
+
+:file_error
+echo File hash does not match the expected value. &amp; echo &amp; pause &amp; exit
+
+
+REM #Edge
+:uninst_edge
+echo - Removing Edge
+where /q "%ProgramFiles(x86)%\Microsoft\Edge\Application:*"
+if %errorlevel% neq 0 goto uninst_wv
+start /w "" "%fileSetup%" --uninstall --system-level --force-uninstall
+
+REM #WebView
+:uninst_wv
+echo - Removing WebView
+where /q "%ProgramFiles(x86)%\Microsoft\EdgeWebView\Application:*"
+if %errorlevel% neq 0 goto cleanup_wv_junk
+start /w "" "%fileSetup%" --uninstall --msedgewebview --system-level --force-uninstall
+REM Delete empty folders
+:cleanup_wv_junk
+REM rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeWebView" &gt;NUL 2&gt;&amp;1
+for /f "delims=" %%d in ('dir /ad /b /s "%ProgramFiles(x86)%\Microsoft\EdgeWebView" 2^&gt;NUL ^| sort /r') do rd "%%d" 2&gt;NUL
+
+
+
+REM #Additional Files
+
+REM Desktop icon
+:users_cleanup
+echo - Removing Additional Files
+
+set "REG_USERS_PATH=HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList"
+for /f "skip=2 tokens=2*" %%c in ('reg query "%REG_USERS_PATH%" /v Public') do ( call :user_rem_lnks_by_path %%d )
+for /f "skip=2 tokens=2*" %%c in ('reg query "%REG_USERS_PATH%" /v Default') do ( call :user_rem_lnks_by_path %%d )
+for /f "skip=1 tokens=7 delims=\" %%k in ('reg query "%REG_USERS_PATH%" /k /f "*"') do ( call :user_rem_lnks_by_sid %%k )
+goto users_done
+
+:user_rem_lnks_by_sid
+if "%1"=="S-1-5-18" goto user_end
+if "%1"=="S-1-5-19" goto user_end
+if "%1"=="S-1-5-20" goto user_end
+for /f "skip=2 tokens=2*" %%c in ('reg query "%REG_USERS_PATH%\%1" /v ProfileImagePath') do (
+	call :user_rem_lnks_by_path %%d
+	if "%UserProfile%"=="%%d" set "USER_SID=%1"
+)
+goto user_end
+
+:user_rem_lnks_by_path
+del /s /q "%1\Desktop\edge.lnk" &gt;NUL 2&gt;&amp;1
+del /s /q "%1\Desktop\Microsoft Edge.lnk" &gt;NUL 2&gt;&amp;1
+
+:user_end
+exit /b 0
+
+:users_done
+
+REM System32
+if exist "%SystemRoot%\System32\MicrosoftEdgeCP.exe" (
+for /f "delims=" %%a in ('dir /b "%SystemRoot%\System32\MicrosoftEdge*"') do (
+ takeown /f "%SystemRoot%\System32\%%a" &gt;NUL 2&gt;&amp;1
+ icacls "%SystemRoot%\System32\%%a" /inheritance:e /grant "%UserName%:(OI)(CI)F" /T /C &gt;NUL 2&gt;&amp;1
+ del /S /Q "%SystemRoot%\System32\%%a" &gt;NUL 2&gt;&amp;1))
+
+REM Folders
+taskkill /im MicrosoftEdgeUpdate.exe /f &gt;NUL 2&gt;&amp;1
+rd /s /q "%ProgramFiles(x86)%\Microsoft\Edge" &gt;NUL 2&gt;&amp;1
+rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeCore" &gt;NUL 2&gt;&amp;1
+rd /s /q "%ProgramFiles(x86)%\Microsoft\EdgeUpdate" &gt;NUL 2&gt;&amp;1
+rd /s /q "%ProgramFiles(x86)%\Microsoft\Temp &gt;NUL 2&gt;&amp;1
+rd /s /q "%AllUsersProfile%\Microsoft\EdgeUpdate" &gt;NUL 2&gt;&amp;1
+
+REM Files
+del /s /q "%AllUsersProfile%\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk" &gt;NUL 2&gt;&amp;1
+
+REM Registry
+reg delete "HKLM\SOFTWARE\Microsoft\Active Setup\Installed Components\{9459C573-B17A-45AE-9F64-1857B5D58CEE}" /f &gt;NUL 2&gt;&amp;1
+reg delete "HKLM\SOFTWARE\WOW6432Node\Microsoft\Edge" /f &gt;NUL 2&gt;&amp;1
+
+REM Tasks - Files
+for /r "%SystemRoot%\System32\Tasks" %%f in (*MicrosoftEdge*) do del "%%f" &gt;NUL 2&gt;&amp;1
+
+REM Tasks - Name
+for /f "skip=1 tokens=1 delims=," %%a in ('schtasks /query /fo csv') do (
+for %%b in (%%a) do (
+ if "%%b"=="MicrosoftEdge" schtasks /delete /tn "%%~a" /f &gt;NUL 2&gt;&amp;1))
+
+REM Update Services
+set "service_names=edgeupdate edgeupdatem"
+for %%n in (%service_names%) do (
+ sc stop %%n &gt;NUL 2&gt;&amp;1
+ sc delete %%n &gt;NUL 2&gt;&amp;1
+ reg delete "HKLM\SYSTEM\CurrentControlSet\Services\%%n" /f &gt;NUL 2&gt;&amp;1
+)
+
+
+REM #APPX
+echo - Removing APPX
+
+if defined USER_SID goto rem_appX
+for /f "delims=" %%a in ('powershell "(New-Object System.Security.Principal.NTAccount($env:USERNAME)).Translate([System.Security.Principal.SecurityIdentifier]).Value"') do set "USER_SID=%%a"
+
+:rem_appX
+set "REG_APPX_STORE=HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore"
+for /f "delims=" %%a in ('powershell -NoProfile -Command "Get-AppxPackage -AllUsers | Where-Object { $_.PackageFullName -like '*microsoftedge*' } | Select-Object -ExpandProperty PackageFullName"') do (
+    if not "%%a"=="" (
+        reg add "%REG_APPX_STORE%\EndOfLife\%USER_SID%\%%a" /f &gt;NUL 2&gt;&amp;1
+        reg add "%REG_APPX_STORE%\EndOfLife\S-1-5-18\%%a" /f &gt;NUL 2&gt;&amp;1
+        reg add "%REG_APPX_STORE%\Deprovisioned\%%a" /f &gt;NUL 2&gt;&amp;1
+        powershell -Command "Remove-AppxPackage -Package '%%a'" 2&gt;NUL
+        powershell -Command "Remove-AppxPackage -Package '%%a' -AllUsers" 2&gt;NUL
+    )
+)
+
+REM %SystemRoot%\SystemApps\Microsoft.MicrosoftEdge*
+for /d %%d in ("%SystemRoot%\SystemApps\Microsoft.MicrosoftEdge*") do (
+ takeown /f "%%d" /r /d y &gt;NUL 2&gt;&amp;1
+ icacls "%%d" /grant administrators:F /t &gt;NUL 2&gt;&amp;1
+ rd /s /q "%%d" &gt;NUL 2&gt;&amp;1)
+		</File>
+		<File path="C:\Windows\Setup\Scripts\unattend-04.ps1">
+$AppList = @(
+    'Microsoft.EdgeWebView2Runtime',
+    'M2Team.NanaZip',
+    'Google.Chrome',
+    'Mozilla.Firefox',
+    'PDFgear.PDFgear',
+    'TheDocumentFoundation.LibreOffice',
+    'VideoLAN.VLC',
+    'CodecGuide.K-LiteCodecPack.Mega',
+    'Notepad++.Notepad++'
+)
+
+foreach ($App in $AppList) {
+
+    $Args = @(
+        'install',
+        '--scope=machine',
+        '--accept-source-agreements',
+        '--accept-package-agreements',
+        '--force',
+        '--silent',
+        '-e',
+        '--id',
+        $App
+    )
+
+    &amp; winget $Args
+}
+		</File>
+		<File path="C:\Windows\Setup\Scripts\unattend-05.reg">
+Windows Registry Editor Version 5.00
+
+[HKEY_USERS\DefaultUser\Software\Microsoft\Clipboard]
+"EnableClipboardHistory"=dword:00000001
+
+[HKEY_USERS\DefaultUser\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband\AuxilliaryPins]
+"MailPin"=dword:00000002
+"TFLPin"=dword:00000001
+
+[HKEY_USERS\DefaultUser\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"Start_TrackDocs"=dword:00000001
+"Start_AccountNotifications"=dword:00000000
+"Start_IrisRecommendations"=dword:00000000
+
+[HKEY_USERS\DefaultUser\Software\Microsoft\Windows\CurrentVersion\Start]
+"ShowFrequentList"=dword:00000001
+"PlacesInitializedVersion"=dword:00000002
+"ShowRecentList"=dword:00000001
+"VisiblePlaces"=hex:86,08,73,52,aa,51,43,42,9f,7b,27,76,58,46,59,d4,ce,d5,34,\
+  2d,5a,fa,43,45,82,f2,22,e6,ea,f7,77,3c,2f,b3,67,e3,de,89,55,43,bf,ce,61,f3,\
+  7b,18,a9,37,a0,07,3f,38,0a,e8,80,4c,b0,5a,86,db,84,5d,bc,4d,4a,b0,bd,74,4a,\
+  f9,68,4f,8b,d6,43,98,07,1d,a8,bc
+		</File>
+		<File path="C:\Windows\Setup\Scripts\Specialize.ps1">
+$scripts = @(
+	{
+		reg.exe add "HKLM\SYSTEM\Setup\MoSetup" /v AllowUpgradesWithUnsupportedTPMOrCPU /t REG_DWORD /d 1 /f;
+	};
+	{
+		Remove-Item -LiteralPath 'Registry::HKLM\Software\Microsoft\WindowsUpdate\Orchestrator\UScheduler_Oobe\DevHomeUpdate' -Force -ErrorAction 'SilentlyContinue';
+	};
+	{
+		Remove-Item -LiteralPath 'Registry::HKLM\Software\Microsoft\WindowsUpdate\Orchestrator\UScheduler_Oobe\OutlookUpdate' -Force -ErrorAction 'SilentlyContinue';
+	};
+	{
+		reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Communications" /v ConfigureChatAutoInstall /t REG_DWORD /d 0 /f;
+	};
+	{
+		Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\RemovePackages.ps1' -Raw | Invoke-Expression;
+	};
+	{
+		Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\RemoveCapabilities.ps1' -Raw | Invoke-Expression;
+	};
+	{
+		Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\RemoveFeatures.ps1' -Raw | Invoke-Expression;
+	};
+	{
+		net.exe accounts /maxpwage:UNLIMITED;
+	};
+	{
+		reg.exe add "HKLM\Software\Policies\Microsoft\Windows\CloudContent" /v "DisableCloudOptimizedContent" /t REG_DWORD /d 1 /f;
+		[System.Diagnostics.EventLog]::CreateEventSource( 'UnattendGenerator', 'Application' );
+	};
+	{
+		Register-ScheduledTask -TaskName 'UnlockStartLayout' -Xml $( Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\UnlockStartLayout.xml' -Raw );
+	};
+	{
+		icacls.exe C:\ /remove:g "*S-1-5-11"
+	};
+	{
+		reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v HiberbootEnabled /t REG_DWORD /d 0 /f;
+	};
+	{
+		reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Dsh" /v AllowNewsAndInterests /t REG_DWORD /d 0 /f;
+	};
+	{
+		reg.exe add "HKLM\Software\Policies\Microsoft\Windows\CloudContent" /v "DisableWindowsConsumerFeatures" /t REG_DWORD /d 1 /f;
+	};
+	{
+		reg.exe add "HKLM\Software\Policies\Microsoft\Edge" /v HideFirstRunExperience /t REG_DWORD /d 1 /f;
+	};
+	{
+		Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\MakeEdgeUninstallable.ps1' -Raw | Invoke-Expression;
+	};
+	{
+		Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\SetStartPins.ps1' -Raw | Invoke-Expression;
+	};
+	{
+		reg.exe import "C:\Windows\Setup\Scripts\unattend-01.reg";
+	};
+);
+
+&amp; {
+  [float] $complete = 0;
+  [float] $increment = 100 / $scripts.Count;
+  foreach( $script in $scripts ) {
+    Write-Progress -Activity 'Running scripts to customize your Windows installation. Do not close this window.' -PercentComplete $complete;
+    '*** Will now execute command &#xAB;{0}&#xBB;.' -f $(
+      $str = $script.ToString().Trim() -replace '\s+', ' ';
+      $max = 100;
+      if( $str.Length -le $max ) {
+        $str;
+      } else {
+        $str.Substring( 0, $max - 1 ) + '&#x2026;';
+      }
+    );
+    $start = [datetime]::Now;
+    &amp; $script;
+    '*** Finished executing command after {0:0} ms.' -f [datetime]::Now.Subtract( $start ).TotalMilliseconds;
+    "`r`n" * 3;
+    $complete += $increment;
+  }
+} *&gt;&amp;1 &gt;&gt; "C:\Windows\Setup\Scripts\Specialize.log";
+		</File>
+		<File path="C:\Windows\Setup\Scripts\UserOnce.ps1">
+$scripts = @(
+	{
+		Get-AppxPackage -Name 'Microsoft.Windows.Ai.Copilot.Provider' | Remove-AppxPackage;
+	};
+	{
+		[System.Diagnostics.EventLog]::WriteEntry( 'UnattendGenerator', "User '$env:USERNAME' has requested to unlock the Start menu layout.", [System.Diagnostics.EventLogEntryType]::Information, 1 );
+	};
+	{
+		$params = @{
+			Path = 'Registry::HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32';
+			ErrorAction = 'SilentlyContinue';
+			Force = $true;
+		};
+		New-Item @params;
+		Set-ItemProperty @params -Name '(Default)' -Value '' -Type 'String';
+	};
+	{
+		Set-ItemProperty -LiteralPath 'Registry::HKCU\Software\Microsoft\Windows\CurrentVersion\Search' -Name 'SearchboxTaskbarMode' -Type 'DWord' -Value 1;
+	};
+	{
+		Get-Process -Name 'explorer' -ErrorAction 'SilentlyContinue' | Where-Object -FilterScript {
+			$_.SessionId -eq ( Get-Process -Id $PID ).SessionId;
+		} | Stop-Process -Force;
+	};
+);
+
+&amp; {
+  [float] $complete = 0;
+  [float] $increment = 100 / $scripts.Count;
+  foreach( $script in $scripts ) {
+    Write-Progress -Activity 'Running scripts to configure this user account. Do not close this window.' -PercentComplete $complete;
+    '*** Will now execute command &#xAB;{0}&#xBB;.' -f $(
+      $str = $script.ToString().Trim() -replace '\s+', ' ';
+      $max = 100;
+      if( $str.Length -le $max ) {
+        $str;
+      } else {
+        $str.Substring( 0, $max - 1 ) + '&#x2026;';
+      }
+    );
+    $start = [datetime]::Now;
+    &amp; $script;
+    '*** Finished executing command after {0:0} ms.' -f [datetime]::Now.Subtract( $start ).TotalMilliseconds;
+    "`r`n" * 3;
+    $complete += $increment;
+  }
+} *&gt;&amp;1 &gt;&gt; "$env:TEMP\UserOnce.log";
+		</File>
+		<File path="C:\Windows\Setup\Scripts\DefaultUser.ps1">
+$scripts = @(
+	{
+		reg.exe add "HKU\DefaultUser\Software\Policies\Microsoft\Windows\WindowsCopilot" /v TurnOffWindowsCopilot /t REG_DWORD /d 1 /f;
+	};
+	{
+		reg.exe add "HKU\DefaultUser\Software\Microsoft\Windows\CurrentVersion\GameDVR" /v AppCaptureEnabled /t REG_DWORD /d 0 /f;
+	};
+	{
+		reg.exe add "HKU\DefaultUser\Software\Policies\Microsoft\Windows\Explorer" /v "StartLayoutFile" /t REG_SZ /d "C:\Windows\Setup\Scripts\TaskbarLayoutModification.xml" /f;
+		reg.exe add "HKU\DefaultUser\Software\Policies\Microsoft\Windows\Explorer" /v "LockedStartLayout" /t REG_DWORD /d 1 /f;
+	};
+	{
+		reg.exe add "HKU\DefaultUser\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t REG_DWORD /d 0 /f;
+	};
+	{
+		reg.exe add "HKU\DefaultUser\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Hidden" /t REG_DWORD /d 1 /f;
+	};
+	{
+		reg.exe add "HKU\DefaultUser\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v ShowTaskViewButton /t REG_DWORD /d 0 /f;
+	};
+	{
+		$names = @(
+		  'ContentDeliveryAllowed';
+		  'FeatureManagementEnabled';
+		  'OEMPreInstalledAppsEnabled';
+		  'PreInstalledAppsEnabled';
+		  'PreInstalledAppsEverEnabled';
+		  'SilentInstalledAppsEnabled';
+		  'SoftLandingEnabled';
+		  'SubscribedContentEnabled';
+		  'SubscribedContent-310093Enabled';
+		  'SubscribedContent-338387Enabled';
+		  'SubscribedContent-338388Enabled';
+		  'SubscribedContent-338389Enabled';
+		  'SubscribedContent-338393Enabled';
+		  'SubscribedContent-353698Enabled';
+		  'SystemPaneSuggestionsEnabled';
+		);
+		
+		foreach( $name in $names ) {
+		  reg.exe add "HKU\DefaultUser\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v $name /t REG_DWORD /d 0 /f;
+		}
+	};
+	{
+		foreach( $root in 'Registry::HKU\.DEFAULT', 'Registry::HKU\DefaultUser' ) {
+		  Set-ItemProperty -LiteralPath "$root\Control Panel\Keyboard" -Name 'InitialKeyboardIndicators' -Type 'String' -Value 2 -Force;
+		}
+	};
+	{
+		reg.exe add "HKU\DefaultUser\Software\Policies\Microsoft\Windows\Explorer" /v DisableSearchBoxSuggestions /t REG_DWORD /d 1 /f;
+	};
+	{
+		reg.exe import "C:\Windows\Setup\Scripts\unattend-05.reg";
+	};
+	{
+		reg.exe add "HKU\DefaultUser\Software\Microsoft\Windows\CurrentVersion\RunOnce" /v "UnattendedSetup" /t REG_SZ /d "powershell.exe -WindowStyle Normal -NoProfile -Command \""Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\UserOnce.ps1' -Raw | Invoke-Expression;\""" /f;
+	};
+);
+
+&amp; {
+  [float] $complete = 0;
+  [float] $increment = 100 / $scripts.Count;
+  foreach( $script in $scripts ) {
+    Write-Progress -Activity 'Running scripts to modify the default user&#x2019;&#x2019;s registry hive. Do not close this window.' -PercentComplete $complete;
+    '*** Will now execute command &#xAB;{0}&#xBB;.' -f $(
+      $str = $script.ToString().Trim() -replace '\s+', ' ';
+      $max = 100;
+      if( $str.Length -le $max ) {
+        $str;
+      } else {
+        $str.Substring( 0, $max - 1 ) + '&#x2026;';
+      }
+    );
+    $start = [datetime]::Now;
+    &amp; $script;
+    '*** Finished executing command after {0:0} ms.' -f [datetime]::Now.Subtract( $start ).TotalMilliseconds;
+    "`r`n" * 3;
+    $complete += $increment;
+  }
+} *&gt;&amp;1 &gt;&gt; "C:\Windows\Setup\Scripts\DefaultUser.log";
+		</File>
+		<File path="C:\Windows\Setup\Scripts\FirstLogon.ps1">
+$scripts = @(
+	{
+		Set-ItemProperty -LiteralPath 'Registry::HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon' -Name 'AutoLogonCount' -Type 'DWord' -Force -Value 0;
+	};
+	{
+		cmd.exe /c "rmdir C:\Windows.old";
+	};
+	{
+		Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\unattend-02.ps1' -Raw | Invoke-Expression;
+	};
+	{
+		C:\Windows\Setup\Scripts\unattend-03.cmd;
+	};
+	{
+		Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\unattend-04.ps1' -Raw | Invoke-Expression;
+	};
+);
+
+&amp; {
+  [float] $complete = 0;
+  [float] $increment = 100 / $scripts.Count;
+  foreach( $script in $scripts ) {
+    Write-Progress -Activity 'Running scripts to finalize your Windows installation. Do not close this window.' -PercentComplete $complete;
+    '*** Will now execute command &#xAB;{0}&#xBB;.' -f $(
+      $str = $script.ToString().Trim() -replace '\s+', ' ';
+      $max = 100;
+      if( $str.Length -le $max ) {
+        $str;
+      } else {
+        $str.Substring( 0, $max - 1 ) + '&#x2026;';
+      }
+    );
+    $start = [datetime]::Now;
+    &amp; $script;
+    '*** Finished executing command after {0:0} ms.' -f [datetime]::Now.Subtract( $start ).TotalMilliseconds;
+    "`r`n" * 3;
+    $complete += $increment;
+  }
+} *&gt;&amp;1 &gt;&gt; "C:\Windows\Setup\Scripts\FirstLogon.log";
+		</File>
+	</Extensions>
+</unattend>
