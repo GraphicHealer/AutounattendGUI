@@ -1,7 +1,7 @@
 {
     "control": [
         {
-            "VTOY_DEFAULT_SEARCH_ROOT": "/ISOs"
+            "VTOY_DEFAULT_SEARCH_ROOT": "/"
         }
     ],
     "menu_alias": [
