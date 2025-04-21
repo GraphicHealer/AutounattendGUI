@@ -1,11 +1,11 @@
 # OSD-AutounattendGUI
 This is my particular OSDCloud setup, built into easy-to-deploy setup and build scripts.
-This is designed to be used with Ventoy, the bootable flashdrive swiss army kinfe.
+This is designed to be used with Ventoy, the bootable flashdrive swiss army knife.
 
 - https://www.osdcloud.com
 - https://www.ventoy.net
 
-Special thanks to the NinjaOne Community, some of the script functrions and techniques are from the awesome people over there who were oh-so-patient with me learning PowerShell over the last year or so!
+Special thanks to the NinjaOne Community, some of the script functions and techniques are from the awesome people over there who were oh-so-patient with me learning PowerShell over the last year or so!
 
 ## Getting started
 The two main scripts are as follows:
@@ -20,14 +20,14 @@ An example config is provided, but you can also generate one by inputting the va
 - `-WifiProfilePath`: (Optional) Path to valid windows Wifi Profile XML
 - `-WallpaperPath`: (Optional) Path to Windows PE Wallpaper
 - `-Brand`: Brandname to use on Start-OSDCloudGUI
-- `-DriverHWID`: (Optional) Array of valid HWID strings to add exrtra drivers
+- `-DriverHWID`: (Optional) Array of valid HWID strings to add extra drivers
 - `-AutounattendXML`: Path to valid Autounattend.xml file, to be copied to OS after Install
 - `-GUI_JSON`: Path to Valid Start-OSDCloudGUI.json
 - `-NoUpdateConfig`: Disable updating/creating Settings.json (-ConfigPath), usefull for testing without loosing config.
 
 ## Setup
 **THIS MUST BE RUN ON WINDOWS 10**
-There is a bug in the windows 11 version of WinPE that does not allow Wifi drivers to fuinction properly through OSDCloud.
+There is a bug in the windows 11 version of WinPE that does not allow Wifi drivers to function properly through OSDCloud.
 Please use Windows 10 for your build environment, you can use a VM or a dedicated machine.
 
 First, download the Git repo.
