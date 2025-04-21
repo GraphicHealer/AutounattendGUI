@@ -5,7 +5,7 @@ This is designed to be used with Ventoy, the bootable flashdrive swiss army kinf
 - https://www.osdcloud.com
 - https://www.ventoy.net
 
-Special thanks to the NinjaOne Community, Wheresome of the script functrions and techniques are from the awesome people over there who were oh-so-patient with me learning PowerShell over the last year or so!
+Special thanks to the NinjaOne Community, some of the script functrions and techniques are from the awesome people over there who were oh-so-patient with me learning PowerShell over the last year or so!
 
 ## Getting started
 The two main scripts are as follows:
