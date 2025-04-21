@@ -60,6 +60,22 @@ $ConfigJSON = [PSCustomObject]@{
     GUI_JSON        = $GUI_JSON
 }
 
+if (!(Test-Path -Path $WorkspacePath -ErrorAction SilentlyContinue)) {
+    New-Item -Path $WorkspacePath -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
+}
+
+if (!(Test-Path -Path $OutPath -ErrorAction SilentlyContinue)) {
+    New-Item -Path $OutPath -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
+}
+
+if (!(Test-Path -Path "$OutPath\OSDCloud" -ErrorAction SilentlyContinue)) {
+    New-Item -Path "$OutPath\OSDCloud" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
+}
+
+if (!(Test-Path -Path "$OutPath\OSDCloud\Automate" -ErrorAction SilentlyContinue)) {
+    New-Item -Path "$OutPath\OSDCloud\Automate" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
+}
+
 if ($WifiProfilePath) {
     if (!(Test-Path -Path $WifiProfilePath -ErrorAction SilentlyContinue)) {
         Write-Error "WifiProfilePath: '$WifiProfilePath' does not exist!"
