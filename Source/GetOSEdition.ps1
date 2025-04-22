@@ -36,7 +36,8 @@ $OldEdition = $OSDCloudJSON.OSEdition
 Write-Output "Edition: $Edition, OldEdition: $OldEdition"
 
 if (($Edition -ne $OldEdition) -and $Edition -ne $null) {
-    if ($Edition -eq 'Professional') { $Edition = 'Pro' }
+    if ($Edition -match 'Professional') { $Edition = 'Pro' }
+    if ($Edition -match 'Core') { $Edition = 'Home' }
     $OSDCloudJSON.OSEdition = $Edition
     $OSDCloudJSON.OSImageIndex = $Hash[$Edition]
 
