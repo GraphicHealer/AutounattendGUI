@@ -33,11 +33,12 @@ try {
 $OSDCloudJSON = Get-Content -Path "$OSDDrive\OSDCloud\Automate\Start-OSDCloudGUI.json" | ConvertFrom-Json
 $OldEdition = $OSDCloudJSON.OSEdition
 
+if ($Edition -match 'Professional') { $Edition = 'Pro' }
+if ($Edition -match 'Core') { $Edition = 'Home' }
+
 Write-Output "Edition: $Edition, OldEdition: $OldEdition"
 
 if (($Edition -ne $OldEdition) -and $Edition -ne $null) {
-    if ($Edition -match 'Professional') { $Edition = 'Pro' }
-    if ($Edition -match 'Core') { $Edition = 'Home' }
     $OSDCloudJSON.OSEdition = $Edition
     $OSDCloudJSON.OSImageIndex = $Hash[$Edition]
 
