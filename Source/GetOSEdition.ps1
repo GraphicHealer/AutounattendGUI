@@ -22,9 +22,11 @@ $Hash = @{
     'Enterprise' = 6
 }
 
+Copy-Item -Path "$OSDDrive\OSDCloud\Automate\Start-OSDCloudGUI.json" -Destination "$OSDDrive\OSDCloud\Automate\Start-OSDCloudGUI.json.bak" -Force
+
 try {
     reg load 'HKU\SystemRoot' 'C:\Windows\System32\config\SOFTWARE'
-    $Edition = (Get-ItemProperty 'Registry::HKEY_USERS\SystemRoot\Microsoft\Windows NT\CurrentVersion').EditionID
+    $Edition = (Get-ItemProperty 'Registry::HKEY_USERS\SystemRoot\Microsoft\Windows NT\CurrentVersion' -ErrorAction Stop).EditionID
     [gc]::Collect()
     reg unload 'HKU\SystemRoot'
 } catch {
@@ -38,10 +40,16 @@ if ($Edition -match 'Core') { $Edition = 'Home' }
 
 Write-Output "Edition: $Edition, OldEdition: $OldEdition"
 
-if (($Edition -ne $OldEdition) -and $Edition -ne $null) {
-    $OSDCloudJSON.OSEdition = $Edition
-    $OSDCloudJSON.OSImageIndex = $Hash[$Edition]
+if ([Environment]::GetEnvironmentVariable('OSDCloudOffline', 'Machine') -eq '1') {
+    $OSDCloudJSON.OSNameValues = @()
+    $Offline = $true
+}
 
-    Copy-Item -Path "$OSDDrive\OSDCloud\Automate\Start-OSDCloudGUI.json" -Destination "$OSDDrive\OSDCloud\Automate\Start-OSDCloudGUI.json.bak" -Force
+if (($Edition -ne $OldEdition) -and $Edition -ne $null) {
+    if (!$Offline) {
+        $OSDCloudJSON.OSEdition = $Edition
+        $OSDCloudJSON.OSImageIndex = $Hash[$Edition]
+    }
+
     $OSDCloudJSON | ConvertTo-Json -Depth 10 | Format-Json | Set-Content -Path "$OSDDrive\OSDCloud\Automate\Start-OSDCloudGUI.json" -Force
 }
