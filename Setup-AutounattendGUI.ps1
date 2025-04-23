@@ -106,7 +106,6 @@ if (!$NoUpdateConfig) {
 
 # Install the OSD module
 Write-Output 'Installing the OSD module...'
-Set-ExecutionPolicy RemoteSigned -Force
 Install-Module OSD -Force
 
 # Create the OSDCloud template

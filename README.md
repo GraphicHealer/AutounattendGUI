@@ -81,6 +81,7 @@ Save it under a new name, like `MyOrgName-Settings.json`
 
 Once you have `MyOrgName-Settings.json` setup, switch back to the Admin Powershell you left open, and run the following:
 ```powershell
+Set-ExecutionPolicy Bypass # Set this so you can run the setup and build scripts
 .\Setup-AutounattendGUI.ps1 -ConfigFile .\MyOrgName-Settings.json
 ```
 This will run through and setup the Build Environment, getting it ready.
