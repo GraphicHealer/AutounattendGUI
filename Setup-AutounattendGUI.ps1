@@ -76,6 +76,10 @@ if (!(Test-Path -Path "$OutPath\OSDCloud\Automate" -ErrorAction SilentlyContinue
     New-Item -Path "$OutPath\OSDCloud\Automate" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
 }
 
+if (!(Test-Path -Path "$OutPath\OSDCloud\OS" -ErrorAction SilentlyContinue)) {
+    New-Item -Path "$OutPath\OSDCloud\OS" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
+}
+
 if ($WifiProfilePath) {
     if (!(Test-Path -Path $WifiProfilePath -ErrorAction SilentlyContinue)) {
         Write-Error "WifiProfilePath: '$WifiProfilePath' does not exist!"
