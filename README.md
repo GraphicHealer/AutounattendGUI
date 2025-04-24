@@ -42,8 +42,8 @@ Leave the powershell window open, you will need it later.
 
 Next, follow these instructions from OSDCloud and install the ADK and ADK-WinPE installers:
 https://www.osdcloud.com/osdcloud/setup
-
-Note the screenshots in the above instructions, they show you what options to choose in the Installers.
+> [!NOTE]
+> The screenshots in the above instructions, they show you what options to choose in the Installers.
 
 Next, open a copy of `Settings.json` in your favorite text editor (I reccomend Notepad++).
 This is what you will see:
