@@ -42,6 +42,7 @@ Write-Output "Edition: $Edition, OldEdition: $OldEdition"
 
 if ([Environment]::GetEnvironmentVariable('OSDCloudOffline', 'Machine') -eq '1') {
     $OSDCloudJSON.OSNameValues = @()
+    $OSDCloudJSON.OSName = ''
     $Offline = $true
 }
 
