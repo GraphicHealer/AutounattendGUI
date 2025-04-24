@@ -110,5 +110,5 @@ When the script is done, it should tell you to copy the contents of the Output f
 **MAKE SURE** the `OSDCloud\` folder under the Output folder is copied to the **ROOT** of your Ventoy flashdrive (Eg: `D:\OSDCloud\`), as `Start-OSDCloudGUI` looks for that folder at that location *Specifically*.
 
 You can copy the `.wim` file under the Output folder to wherever you keep your ISOs on your Ventoy drive.
-
-**\*NOTE\*:** You will need to have the wimboot mode setup on your Ventoy drive, follow this page to set it up: https://www.ventoy.net/en/plugin_wimboot.html
+> [!NOTE]
+> You will need to have the wimboot mode setup on your Ventoy drive, follow this page to set it up: https://www.ventoy.net/en/plugin_wimboot.html
