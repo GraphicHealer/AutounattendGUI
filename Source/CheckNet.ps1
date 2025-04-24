@@ -18,7 +18,7 @@ $script:Form = New-Object -TypeName system.Windows.Forms.Form -Property @{
     TopMost       = $true
 }
 
-$MessageArray = @(
+[System.Collections.ArrayList]$MessageArray = @(
     "Internet Connection Failed!`n`nPlease plug in Ethernet or a USB Wifi Device and Click 'Retry Connection'."
 )
 
