@@ -39,6 +39,8 @@ if (Test-Path -Path "$PSScriptRoot\WifiProfile.xml") {
     $Layout.Controls.Add($Retry)
 }
 
+$Layout.Controls.Add($Manual)
+
 if (Test-Path -Path "$OSDDrive\OSDCloud\OS\*.wim") {
     $MessageArray.Add("`nIf you would like to install the OS offline, Click 'Offline Install'.")
     $Offline = New-Object -TypeName System.Windows.Forms.Button -Property @{ AutoSize = $true; Text = 'Offline Install'; DialogResult = 'OK'; Dock = 'Top' }
@@ -58,7 +60,7 @@ $Quit.Add_Click({
         }
     })
 
-$Layout.controls.AddRange(@($Manual, $Quit))
+$Layout.controls.Add($Quit)
 
 $script:Form.controls.Add($Layout)
 
