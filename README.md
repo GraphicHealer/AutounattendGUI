@@ -28,7 +28,7 @@ An example config is provided, but you can also generate one by inputting the va
 ## Setup
 > [!IMPORTANT]
 > **!!!THIS MUST BE RUN ON WINDOWS 10!!!**
-
+> 
 > The windows 11 version of WinPE does not allow Wifi and other drivers to function properly through OSDCloud, as it dropps support for several key devices.
 Please use Windows 10 for your build environment, you can use a VM or a dedicated machine.
 
