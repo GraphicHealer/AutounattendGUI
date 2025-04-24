@@ -26,8 +26,10 @@ An example config is provided, but you can also generate one by inputting the va
 - `-NoUpdateConfig`: Disable updating/creating Settings.json (-ConfigPath), usefull for testing without loosing config.
 
 ## Setup
-**THIS MUST BE RUN ON WINDOWS 10**
-There is a bug in the windows 11 version of WinPE that does not allow Wifi drivers to function properly through OSDCloud.
+> [!IMPORTANT]
+> **!!!THIS MUST BE RUN ON WINDOWS 10!!!**
+> 
+> The windows 11 version of WinPE does not allow Wifi and other drivers to function properly through OSDCloud, as it dropps support for several key devices.
 Please use Windows 10 for your build environment, you can use a VM or a dedicated machine.
 
 First, download the Git repo.
@@ -40,8 +42,8 @@ Leave the powershell window open, you will need it later.
 
 Next, follow these instructions from OSDCloud and install the ADK and ADK-WinPE installers:
 https://www.osdcloud.com/osdcloud/setup
-
-Note the screenshots in the above instructions, they show you what options to choose in the Installers.
+> [!NOTE]
+> Follow the screenshots in the above instructions, they show you what options to choose in the Installers.
 
 Next, open a copy of `Settings.json` in your favorite text editor (I reccomend Notepad++).
 This is what you will see:
@@ -108,5 +110,5 @@ When the script is done, it should tell you to copy the contents of the Output f
 **MAKE SURE** the `OSDCloud\` folder under the Output folder is copied to the **ROOT** of your Ventoy flashdrive (Eg: `D:\OSDCloud\`), as `Start-OSDCloudGUI` looks for that folder at that location *Specifically*.
 
 You can copy the `.wim` file under the Output folder to wherever you keep your ISOs on your Ventoy drive.
-
-**\*NOTE\*:** You will need to have the wimboot mode setup on your Ventoy drive, follow this page to set it up: https://www.ventoy.net/en/plugin_wimboot.html
+> [!NOTE]
+> You will need to have the wimboot mode setup on your Ventoy drive, follow this page to set it up: https://www.ventoy.net/en/plugin_wimboot.html
