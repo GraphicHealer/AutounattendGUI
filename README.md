@@ -117,7 +117,8 @@ When the script is done, it should tell you to copy the contents of `OutPath` (`
 > You will need to have the wimboot mode setup on your Ventoy drive, follow this page to set it up: https://www.ventoy.net/en/plugin_wimboot.html
 
 ## Custom/Exsisting Ventoy Setup
-This sectiuon is ONLY applicable if you already have an exsisting Ventoy setup.
-1. **MAKE SURE** the `OSDCloud\` folder in the Output folder is copied to the **ROOT** of your Ventoy flashdrive's storage partition (Eg: `D:\OSDCloud\`), as `Start-OSDCloudGUI` looks for that folder at that location *Specifically*.
-2. **DO NOT** copy the `ventoy` folder in the `OutPath` **IF** you already have a custom `ventoy.json` setup. *It will overwrite that if you do.*
-3. If you do have a custom config, look at this file for the relevant configuration: [ventoy.json](Ventoy-Drive/ventoy/ventoy.json)
+> [!CAUTION]
+> This section is ONLY applicable if you already have an exsisting Ventoy setup.
+1. **MAKE SURE** the entire `OSDCloud\` folder in the Output folder is copied to the **ROOT** of your Ventoy drive's storage partition (Eg: `D:\OSDCloud\`).
+3. **DO NOT** copy the `ventoy` folder in the `OutPath` **IF** you already have a custom `ventoy.json` setup. *It will overwrite that if you do.*
+4. If you do have a custom `ventoy.json`, look at this file for the relevant configuration you may want to add: [ventoy.json](Ventoy-Drive/ventoy/ventoy.json)
