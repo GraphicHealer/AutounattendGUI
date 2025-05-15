@@ -45,7 +45,7 @@ cd .\AutounattendGUI\
 ```
 Leave the powershell window open, you will need it later.
 
-Next, follow these instructions from OSDCloud and install the ADK and ADK-WinPE installers:
+Next, follow these instructions from OSDCloud to install OSD, ADK, and ADK-WinPE:
 https://www.osdcloud.com/osdcloud/setup
 > [!NOTE]
 > Follow the screenshots in the above instructions, they show you what options to choose in the Installers.
@@ -84,6 +84,8 @@ You will want to change some of the paths. For example:
     "WorkspacePath": ".\\MyOrgName\\AuGUI-Workspace"
 }
 ```
+Note how `MyOrgName` has been added to some of the paths, this will help you keep different builds seperated.
+
 Save it under a new name, like `MyOrgName-Settings.json`
 
 Once you have `MyOrgName-Settings.json` setup, switch back to the Admin Powershell you left open, and run the following:
@@ -94,13 +96,13 @@ Set-ExecutionPolicy Bypass # Set this so you can run the setup and build scripts
 This will run through and setup the Build Environment, getting it ready.
 
 ## Prepare Files
-Next, create or find your `Autounattend.xml` file (I used this site to build the example: https://schneegans.de/windows/unattend-generator/), and copy it to where your `MyOrgName-Settings.json` points to (`.\\MyOrgName\\Autounattend.xml` in this example).
+Next, create or find your `Autounattend.xml` file (I used this site to build one: https://schneegans.de/windows/unattend-generator/), and copy it to where your `MyOrgName-Settings.json` points to (`.\\MyOrgName\\Autounattend.xml` in this example).
 
 Then, you need to copy the file at `.\Build-Files\Start-OSDCloudGUI.json` to where your `MyOrgName-Settings.json` points (`.\\MyOrgName\\Start-OSDCloudGUI.json` in this example).
 
 Edit the file accordingly, using this tutorial: https://www.osdcloud.com/osdcloud-automate/osdcloudgui-defaults
 
-You can also set a custom wallpaper path, just make sure it's a `.jpg` file.
+If you set a custom wallpaper path, just make sure it's a `.jpg` file, and copy it to where your `MyOrgName-Settings.json` points.
 
 ## Build
 Once the `Setup-AutounattendGUI.ps1` has been run and the build files are in place, you can now build the image!
@@ -109,11 +111,13 @@ Go back to the Admin Powershell window you had open, and run the following:
 ```powershell
 .\Build-AutounattendGUI.ps1 -ConfigFile .\MyOrgName-Settings.json
 ```
+When the script is done, it should tell you to copy the contents of `OutPath` (`.\\MyOrgName\\Ventoy-Drive` in this example) to the root of your Ventoy Flashdrive (Eg: `D:\`).
 
-When the script is done, it should tell you to copy the contents of the Output folder to your Ventoy Flashdrive.
-
-**MAKE SURE** the **ENTIRE** `OSDCloud\` folder under the Output folder is copied to the **ROOT** of your Ventoy flashdrive (Eg: `D:\OSDCloud\`), as `Start-OSDCloudGUI` looks for that folder at that location *Specifically*.
-
-You can copy the `.wim` file under the Output folder to wherever you keep your ISOs on your Ventoy drive.
-> [!NOTE]
+> [!WARNING]
 > You will need to have the wimboot mode setup on your Ventoy drive, follow this page to set it up: https://www.ventoy.net/en/plugin_wimboot.html
+
+## Custom/Exsisting Ventoy Setup
+This sectiuon is ONLY applicable if you already have an exsisting Ventoy setup.
+1. **MAKE SURE** the `OSDCloud\` folder in the Output folder is copied to the **ROOT** of your Ventoy flashdrive's storage partition (Eg: `D:\OSDCloud\`), as `Start-OSDCloudGUI` looks for that folder at that location *Specifically*.
+2. **DO NOT** copy the `ventoy` folder in the `OutPath` **IF** you already have a custom `ventoy.json` setup. *It will overwrite that if you do.*
+3. If you do have a custom config, look at this file for the relevant configuration: [ventoy.json](Ventoy-Drive/ventoy/ventoy.json)
