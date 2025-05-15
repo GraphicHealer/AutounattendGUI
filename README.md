@@ -1,6 +1,8 @@
 # OSD-AutounattendGUI
 This is my particular OSDCloud setup, built into easy-to-deploy setup and build scripts.
-This is designed to be used with Ventoy, the bootable flashdrive swiss army knife.
+
+> [!WARNING]
+> **This is designed to be used with Ventoy, the bootable flashdrive swiss army knife. Please have a Ventoy flashdrive prepared.**
 
 - https://www.osdcloud.com
 - https://www.ventoy.net
