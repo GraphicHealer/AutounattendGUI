@@ -10,6 +10,9 @@ This is my particular OSDCloud setup, built into easy-to-deploy setup and build 
 Special thanks to the NinjaOne Community, some of the script functions and techniques are from the awesome people over there who were oh-so-patient with me learning PowerShell over the last year or so!
 
 ## Getting started
+> [!IMPORTANT]
+> Please read through this entire README before starting. This helps cut down on confusion and misunderstanding.
+
 The two main scripts are as follows:
 1. Setup-autounattendGUI.ps1: The Setup Script, for preparing the Build environment.
 2. Build-AutounattendGUI.ps1: This is the script to run when you need to build/update the .wim file.
@@ -25,7 +28,7 @@ An example config is provided, but you can also generate one by inputting the va
 - `-DriverHWID`: (Optional) Array of valid HWID strings to add extra drivers
 - `-AutounattendXML`: Path to valid Autounattend.xml file, to be copied to OS after Install
 - `-GUI_JSON`: Path to Valid Start-OSDCloudGUI.json
-- `-NoUpdateConfig`: Disable updating/creating Settings.json (-ConfigPath), usefull for testing without loosing config.
+- `-NoUpdateConfig`: Disable updating/creating Settings.json (-ConfigPath), usefull for testing without overwriting the config.
 
 ## Setup
 > [!CAUTION]
