@@ -122,3 +122,18 @@ When the script is done, it should tell you to copy the contents of `OutPath` (`
 1. **MAKE SURE** the entire `OSDCloud\` folder in the Output folder is copied to the **ROOT** of your Ventoy drive's storage partition (Eg: `D:\OSDCloud\`).
 3. **DO NOT** copy the `ventoy` folder in the `OutPath` **IF** you already have a custom `ventoy.json` setup. *It will overwrite that if you do.*
 4. If you do have a custom `ventoy.json`, look at this file for the relevant configuration you may want to add: [ventoy.json](Ventoy-Drive/ventoy/ventoy.json)
+
+# Troubleshooting
+If OSDCloudGUI is missing options in its dropdown, you may have a corrupted `Start-OSDCloudGUI.json` file.
+The scripts automatically make a backup of `Start-OSDCloudGUI.json` before anything starts, just in case the config is messed up.
+The backup is usually automatically restored right before OSDCloud finishes the Windows Install and reboots, but if something fails, it may skip this restoration step.
+If you run into problems in WinPE and you reboot or shutdown before OSDCloud finishes, you may need to restore the `Start-OSDCloudGUI.json` backup.
+If you need to manually restore the file, do the following:
+1. Plug your Ventoy flash drive into a working PC
+2. Open `<Ventoy>:\OSDCloud\Automate\`
+3. You should see both `Start-OSDCloudGUI.json` and `Start-OSDCloudGUI.json.bak`.
+4. Delete `Start-OSDCloudGUI.json`
+5. Rename `Start-OSDCloudGUI.json.bak` to `Start-OSDCloudGUI.json`
+6. Done!
+7. 
+Once you have replaced the file, OSDCloudGUI should run properly again.
