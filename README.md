@@ -38,7 +38,7 @@ An example config is provided, but you can also generate one by inputting the va
 Please use Windows 10 for your build environment, you can use a VM or a dedicated machine.
 
 > [!WARNING]
-> You must have Windows 10 version 2004 or newer, you can check the version in `Settings > System > About`, as shown here:
+> You must have Windows 10 version 2004 (April 2020) or newer, you can check the version in `Settings > System > About`, as shown here:
 > <br />
 > ![image](https://github.com/user-attachments/assets/f289fe4b-c21b-4142-81a9-68bb6caea814)
 
