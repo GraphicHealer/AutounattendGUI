@@ -39,14 +39,17 @@ Please use Windows 10 for your build environment, you can use a VM or a dedicate
 
 > [!WARNING]
 > You must have Windows 10 version 2004 or newer, you can check the version in `Settings > System > About`, as shown here:
+> <br />
 > ![image](https://github.com/user-attachments/assets/f289fe4b-c21b-4142-81a9-68bb6caea814)
 
 First, install ADK and ADK-WinPE:
 1. Go to https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install
 2. **MAKE SURE** to use **THIS** version of ADK and ADK-WinPE (Download both):
+   <br />
    ![image](https://github.com/user-attachments/assets/3f66c7d2-57ad-4a60-8202-e11ff868e994)
 3. Run the ADK installer first (Not ADK-WinPE). Just use the defaults till you get to the step shown below.
 4. When you get to this screen, only select the option highlighted below:
+   <br />
    ![image](https://github.com/user-attachments/assets/4253d03f-c51f-4375-8604-aab8ad1868e0)
 5. Just use defaults for the rest of the installation.
 6. Once the ADK is finished installing, run ADK-WinPE. Just keep all the defaults and keep pressing next.
