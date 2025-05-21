@@ -2,7 +2,7 @@
 This is my particular OSDCloud setup, built into easy-to-deploy setup and build scripts.
 
 > [!WARNING]
-> **This is designed to be used with Ventoy, the bootable flashdrive swiss army knife. Please have a Ventoy flashdrive prepared.**
+> **This is designed to be used with Ventoy, the bootable flash drive swiss army knife. Please have a Ventoy flash drive prepared.**
 
 - https://www.osdcloud.com
 - https://www.ventoy.net
@@ -17,40 +17,50 @@ The two main scripts are as follows:
 1. Setup-autounattendGUI.ps1: The Setup Script, for preparing the Build environment.
 2. Build-AutounattendGUI.ps1: This is the script to run when you need to build/update the .wim file.
 
-Both scripts will pull their runtime settings from `Settings.json`, or a .json config specified with the `-ConfigFile` flag.
+Both scripts will pull their runtime settings from `Settings.json`, or a `.json` config specified with the `-ConfigFile` flag.
 An example config is provided, but you can also generate one by inputting the values directly into one of the scripts using their flags:
-- `-WorkspacePath`: The Path to where you want OSDCloud to build it's Workspace
+- `-WorkspacePath`: The Path to where you want OSDCloud to build its Workspace
 - `-OutPath`: The path to save output files to
-- `-WimName`: What to name the completed .wim file
-- `-WifiProfilePath`: (Optional) Path to valid windows Wifi Profile XML
+- `-WimName`: What to name the completed `.wim` file
+- `-WifiProfilePath`: (Optional) Path to valid windows Wi-Fi Profile XML
 - `-WallpaperPath`: (Optional) Path to Windows PE Wallpaper
-- `-Brand`: Brandname to use on Start-OSDCloudGUI
+- `-Brand`: Brand name to use on Start-OSDCloudGUI
 - `-DriverHWID`: (Optional) Array of valid HWID strings to add extra drivers
 - `-AutounattendXML`: Path to valid Autounattend.xml file, to be copied to OS after Install
 - `-GUI_JSON`: Path to Valid Start-OSDCloudGUI.json
-- `-NoUpdateConfig`: Disable updating/creating Settings.json (-ConfigPath), usefull for testing without overwriting the config.
+- `-NoUpdateConfig`: Disable updating/creating Settings.json (-ConfigPath), useful for testing without overwriting the config.
 
 ## Setup
 > [!CAUTION]
 > **!!!THIS MUST BE RUN ON WINDOWS 10!!!**
 > 
-> The windows 11 version of WinPE does not allow Wifi and other drivers to function properly through OSDCloud, as it drops support for several key devices.
+> The windows 11 version of WinPE does not allow Wi-Fi and other drivers to function properly through OSDCloud, as it drops support for several key devices.
 Please use Windows 10 for your build environment, you can use a VM or a dedicated machine.
 
-First, download the Git repo.
-Run the following in an Administrator Powershell:
+> [!WARNING]
+> You must have Windows 10 version 2004 or newer, you can check the version in `Settings > System > About`, as shown here:
+> ![image](https://github.com/user-attachments/assets/f289fe4b-c21b-4142-81a9-68bb6caea814)
+
+First, install ADK and ADK-WinPE:
+1. Go to https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install
+2. **MAKE SURE** to use **THIS** version of ADK and ADK-WinPE (Download both):
+   ![image](https://github.com/user-attachments/assets/3f66c7d2-57ad-4a60-8202-e11ff868e994)
+3. Run the ADK installer first (Not ADK-WinPE). Just use the defaults till you get to the step shown below.
+4. When you get to this screen, only select the option highlighted below:
+   ![image](https://github.com/user-attachments/assets/4253d03f-c51f-4375-8604-aab8ad1868e0)
+5. Just use defaults for the rest of the installation.
+6. Once the ADK is finished installing, run ADK-WinPE. Just keep all the defaults and keep pressing next.
+7. Done!
+
+Now, download the Git repo.
+Run the following in an Administrator PowerShell:
 ```powershell
 git clone https://github.com/GraphicHealer/AutounattendGUI.git
 cd .\AutounattendGUI\
 ```
 Leave the powershell window open, you will need it later.
 
-Next, follow these instructions from OSDCloud to install OSD, ADK, and ADK-WinPE:
-https://www.osdcloud.com/osdcloud/setup
-> [!NOTE]
-> Follow the screenshots in the above instructions, they show you what options to choose in the Installers.
-
-Next, open a copy of `Settings.json` in your favorite text editor (I reccomend Notepad++).
+Next, open a copy of `Settings.json` in your favorite text editor (I recommend Notepad++).
 This is what you will see:
 ```json
 {
@@ -84,7 +94,7 @@ You will want to change some of the paths. For example:
     "WorkspacePath": ".\\MyOrgName\\AuGUI-Workspace"
 }
 ```
-Note how `MyOrgName` has been added to some of the paths, this will help you keep different builds seperated.
+Note how `MyOrgName` has been added to some of the paths, this will help you keep different builds separated.
 
 Save it under a new name, like `MyOrgName-Settings.json`
 
@@ -93,7 +103,7 @@ Once you have `MyOrgName-Settings.json` setup, switch back to the Admin Powershe
 Set-ExecutionPolicy Bypass # Set this so you can run the setup and build scripts
 .\Setup-AutounattendGUI.ps1 -ConfigFile .\MyOrgName-Settings.json
 ```
-This will run through and setup the Build Environment, getting it ready.
+This will run through and set up the Build Environment, getting it ready.
 
 ## Prepare Files
 Next, create or find your `Autounattend.xml` file (I used this site to build one: https://schneegans.de/windows/unattend-generator/), and copy it to where your `MyOrgName-Settings.json` points to (`.\\MyOrgName\\Autounattend.xml` in this example).
@@ -107,19 +117,19 @@ If you set a custom wallpaper path, just make sure it's a `.jpg` file, and copy 
 ## Build
 Once the `Setup-AutounattendGUI.ps1` has been run and the build files are in place, you can now build the image!
 
-Go back to the Admin Powershell window you had open, and run the following:
+Go back to the Admin Powershell window you have open, and run the following:
 ```powershell
 .\Build-AutounattendGUI.ps1 -ConfigFile .\MyOrgName-Settings.json
 ```
-When the script is done, it should tell you to copy the contents of `OutPath` (`.\\MyOrgName\\Ventoy-Drive` in this example) to the root of your Ventoy Flashdrive (Eg: `D:\`).
+When the script is done, it should tell you to copy the contents of `OutPath` (`.\\MyOrgName\\Ventoy-Drive` in this example) to the root of your Ventoy flash drive (E.g.: `D:\`).
 
 > [!WARNING]
 > You will need to have the wimboot mode setup on your Ventoy drive, follow this page to set it up: https://www.ventoy.net/en/plugin_wimboot.html
 
-## Custom/Exsisting Ventoy Setup
+## Custom/Existing Ventoy Setup
 > [!CAUTION]
-> This section is ONLY applicable if you already have an exsisting Ventoy setup.
-1. **MAKE SURE** the entire `OSDCloud\` folder in the Output folder is copied to the **ROOT** of your Ventoy drive's storage partition (Eg: `D:\OSDCloud\`).
+> This section is ONLY applicable if you already have an existing Ventoy setup.
+1. **MAKE SURE** the entire `OSDCloud\` folder in the Output folder is copied to the **ROOT** of your Ventoy drive's storage partition (E.g.: `D:\OSDCloud\`).
 3. **DO NOT** copy the `ventoy` folder in the `OutPath` **IF** you already have a custom `ventoy.json` setup. *It will overwrite that if you do.*
 4. If you do have a custom `ventoy.json`, look at this file for the relevant configuration you may want to add: [ventoy.json](Ventoy-Drive/ventoy/ventoy.json)
 
