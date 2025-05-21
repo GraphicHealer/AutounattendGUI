@@ -9,7 +9,8 @@ param(
     [System.Collections.ArrayList]$DriverHWID,
     [string]$AutounattendXML,
     [string]$GUI_JSON,
-    [switch]$NoUpdateConfig
+    [switch]$NoUpdateConfig,
+    [switch]$NoClean
 )
 
 # Formats JSON in a nicer format than the built-in ConvertTo-Json does.
@@ -116,6 +117,11 @@ Install-Module OSD -Force
 Write-Output 'Creating the OSDCloud Template...'
 if (!((Set-OSDCloudTemplate -Name 'AutounattendGUI') -match 'AutounattendGUI')) {
     New-OSDCloudTemplate -Name 'AutounattendGUI' -WinRE
+}
+
+# Clean the Previous Workspace
+if (!$NoClean) {
+    Get-ChildItem $WorkspacePath | Remove-Item -Recurse -Force -ErrorAction 'Continue'
 }
 
 # Create the OSDCloud workspace
