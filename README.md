@@ -148,5 +148,5 @@ If you need to manually restore the file, do the following:
 4. Delete `Start-OSDCloudGUI.json`
 5. Rename `Start-OSDCloudGUI.json.bak` to `Start-OSDCloudGUI.json`
 6. Done!
-7. 
+
 Once you have replaced the file, OSDCloudGUI should run properly again.
