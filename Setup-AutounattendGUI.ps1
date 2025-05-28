@@ -9,6 +9,7 @@ param(
     [System.Collections.ArrayList]$DriverHWID,
     [string]$AutounattendXML,
     [string]$GUI_JSON,
+    [string]$Language,
     [switch]$NoUpdateConfig,
     [switch]$NoClean
 )
@@ -38,6 +39,7 @@ if (Test-Path -Path $ConfigFile -ErrorAction SilentlyContinue) {
     if (!$WimName) { $WimName = $ConfigJSON.WimName }
     if (!$AutounattendXML) { $AutounattendXML = $ConfigJSON.AutounattendXML }
     if (!$GUI_JSON) { $GUI_JSON = $ConfigJSON.GUI_JSON }
+    if (!$Language) { $GUI_JSON = $ConfigJSON.Language }
 
     if (!$ConfigJSON.WorkspacePath -or !$ConfigJSON.OutPath) { $NoUpdateConfig = $false }
 }
@@ -50,6 +52,7 @@ if (!$WifiProfilePath) { $WifiProfilePath = $null }
 if (!$Brand) { $Brand = 'AutounattendGUI' }
 if (!$AutounattendXML) { $AutounattendXML = '.\Build-Files\Autounattend.xml' }
 if (!$GUI_JSON) { $GUI_JSON = '.\Build-Files\Start-OSDCloudGUI.json' }
+if (!$Language) { $Language = 'en-us' }
 
 $ConfigJSON = [PSCustomObject]@{
     Brand           = $Brand
@@ -59,6 +62,7 @@ $ConfigJSON = [PSCustomObject]@{
     WorkspacePath   = $WorkspacePath
     AutounattendXML = $AutounattendXML
     GUI_JSON        = $GUI_JSON
+    Language        = $Language
 }
 
 if (!(Test-Path -Path $WorkspacePath -ErrorAction SilentlyContinue)) {
@@ -115,8 +119,8 @@ Install-Module OSD -Force
 
 # Create the OSDCloud template
 Write-Output 'Creating the OSDCloud Template...'
-if (!((Set-OSDCloudTemplate -Name 'AutounattendGUI') -match 'AutounattendGUI')) {
-    New-OSDCloudTemplate -Name 'AutounattendGUI' -WinRE
+if (!((Set-OSDCloudTemplate -Name 'AutounattendGUI') -match 'AutounattendGUI') or !(Test-Path -Path "$(Get-OSDCloudWorkspace)\Media\$Language")) {
+    New-OSDCloudTemplate -Name 'AutounattendGUI' -WinRE -Language $Language -SetAllIntl $Language
 }
 
 # Clean the Previous Workspace
@@ -130,7 +134,7 @@ New-OSDCloudWorkspace -WorkspacePath $WorkspacePath
 
 # Remove unnecessary files
 Write-Output 'Removing unnecessary files...'
-$KeepTheseDirs = @('boot', 'efi', 'en-us', 'sources', 'fonts', 'resources')
+$KeepTheseDirs = @('boot', 'efi', $Language, 'en-us', 'sources', 'fonts', 'resources')
 Get-ChildItem "$(Get-OSDCloudWorkspace)\Media" | Where-Object { $_.PSIsContainer } | Where-Object { $_.Name -notin $KeepTheseDirs } | Remove-Item -Recurse -Force
 Get-ChildItem "$(Get-OSDCloudWorkspace)\Media\Boot" | Where-Object { $_.PSIsContainer } | Where-Object { $_.Name -notin $KeepTheseDirs } | Remove-Item -Recurse -Force
 Get-ChildItem "$(Get-OSDCloudWorkspace)\Media\EFI\Microsoft\Boot" | Where-Object { $_.PSIsContainer } | Where-Object { $_.Name -notin $KeepTheseDirs } | Remove-Item -Recurse -Force
