@@ -6,7 +6,7 @@
         "VID_17E9&PID_4307"
     ],
     "GUI_JSON": ".\\Build-Files\\Start-OSDCloudGUI.json",
-    "Language": "en-us"
+    "Language": "en-us",
     "OutPath": ".\\Ventoy-Drive",
     "WallpaperPath": ".\\Build-Files\\Wallpaper.jpg",
     "WimName": "1_AutounattendGUI.wim",
