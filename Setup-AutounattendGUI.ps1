@@ -120,7 +120,7 @@ Install-Module OSD -Force
 # Create the OSDCloud template
 Write-Output 'Creating the OSDCloud Template...'
 if (!((Set-OSDCloudTemplate -Name 'AutounattendGUI') -match 'AutounattendGUI') -or !(Test-Path -Path "$(Get-OSDCloudWorkspace)\Media\$Language")) {
-    if ($Language = 'en-us') {
+    if ($Language -match 'en-us') {
         New-OSDCloudTemplate -Name 'AutounattendGUI' -WinRE
     } else {
         New-OSDCloudTemplate -Name 'AutounattendGUI' -WinRE -Language $Language -SetAllIntl $Language
