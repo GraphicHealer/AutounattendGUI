@@ -39,7 +39,7 @@ if (Test-Path -Path $ConfigFile -ErrorAction SilentlyContinue) {
     if (!$WimName) { $WimName = $ConfigJSON.WimName }
     if (!$AutounattendXML) { $AutounattendXML = $ConfigJSON.AutounattendXML }
     if (!$GUI_JSON) { $GUI_JSON = $ConfigJSON.GUI_JSON }
-    if (!$Language) { $GUI_JSON = $ConfigJSON.Language }
+    if (!$Language) { $Language = $ConfigJSON.Language }
 
     if (!$ConfigJSON.WorkspacePath -or !$ConfigJSON.OutPath) { $NoUpdateConfig = $false }
 }
