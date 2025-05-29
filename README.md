@@ -28,12 +28,13 @@ An example config is provided, but you can also generate one by inputting the va
 - `-DriverHWID`: (Optional) Array of valid HWID strings to add extra drivers
 - `-AutounattendXML`: Path to valid Autounattend.xml file, to be copied to OS after Install
 - `-GUI_JSON`: Path to Valid Start-OSDCloudGUI.json
+- `-Language`: The language code you want to use for OSDCloud (Eg: `en-us` or `de-de`).
 - `-NoUpdateConfig`: Disable updating/creating Settings.json (-ConfigPath), useful for testing without overwriting the config.
 
 ## Setup
 > [!CAUTION]
 > **!!!THIS MUST BE RUN ON WINDOWS 10!!!**
-> 
+>
 > The windows 11 version of WinPE does not allow Wi-Fi and other drivers to function properly through OSDCloud, as it drops support for several key devices.
 Please use Windows 10 for your build environment, you can use a VM or a dedicated machine.
 
@@ -74,6 +75,7 @@ This is what you will see:
         "VID_17E9&PID_4307"
     ],
     "GUI_JSON": ".\\Build-Files\\Start-OSDCloudGUI.json",
+    "Language": "en-us",
     "OutPath": ".\\Ventoy-Drive",
     "WallpaperPath": ".\\Build-Files\\Wallpaper.jpg",
     "WimName": "1_AutounattendGUI.wim",
@@ -91,6 +93,7 @@ You will want to change some of the paths. For example:
         "VID_17E9&PID_4307"
     ],
     "GUI_JSON": ".\\MyOrgName\\Start-OSDCloudGUI.json",
+    "Language": "en-us",
     "OutPath": ".\\MyOrgName\\Ventoy-Drive",
     "WallpaperPath": ".\\Build-Files\\Wallpaper.jpg",
     "WimName": "1_AutounattendGUI.wim",
@@ -135,6 +138,35 @@ When the script is done, it should tell you to copy the contents of `OutPath` (`
 1. **MAKE SURE** the entire `OSDCloud\` folder in the Output folder is copied to the **ROOT** of your Ventoy drive's storage partition (E.g.: `D:\OSDCloud\`).
 3. **DO NOT** copy the `ventoy` folder in the `OutPath` **IF** you already have a custom `ventoy.json` setup. *It will overwrite that if you do.*
 4. If you do have a custom `ventoy.json`, look at this file for the relevant configuration you may want to add: [ventoy.json](Ventoy-Drive/ventoy/ventoy.json)
+
+# Usage
+When you boot the .wim file, it will load the system, and start preparing OSDCloud.
+If it detects that there is no internet connectivity, it wil pop this up:
+
+IMAGE
+
+You can choose the option that works best for you.
+- `Enter Wifi Cerdentials` will only appear when you have set `WifiProfilePath` in the build settings.
+- `Offline Install` will only show when you have included a windows `install.wim` in the
+`OSDCloud\OS\` folder on your flashdrive (this is sometimes useful for on-the-go deployment).
+
+Now with working internet, the next page that shows is the OSDCloudGUI. Here you can choose whatever Edition, Language, and Dirver Pack you wish.
+
+IMAGE
+
+If a non-bitlocker `C:` drive with an exsisting windows install is present on the system, AutounattendGUI's Edition Select script will select the same edition currentl present on the `C:` drive (Unless you are using an Offline installer).
+
+With everything selected, click "Start"!
+
+The script will then ask you if the drive it's detected to install Windows on is valid.
+
+IMAGE
+
+if it is, reply `Y` to the prompt and hit `Enter`.
+
+Now OSDCloud, the setup scripts, and Autounattend.xml will do their magic!
+
+In a short time, you will have a fully-functioning Windows installation on your PC!
 
 # Troubleshooting
 If OSDCloudGUI is missing options in its dropdown, you may have a corrupted `Start-OSDCloudGUI.json` file.
