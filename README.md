@@ -140,27 +140,31 @@ When the script is done, it should tell you to copy the contents of `OutPath` (`
 4. If you do have a custom `ventoy.json`, look at this file for the relevant configuration you may want to add: [ventoy.json](Ventoy-Drive/ventoy/ventoy.json)
 
 # Usage
+
+### Internet
 When you boot the .wim file, it will load the system, and start preparing OSDCloud.
 If it detects that there is no internet connectivity, it wil pop this up:
 
-IMAGE
+![image](https://github.com/user-attachments/assets/6793b3c6-ba9d-4902-a0b7-f8e3e13b3656)
 
 You can choose the option that works best for you.
 - `Enter Wifi Cerdentials` will only appear when you have set `WifiProfilePath` in the build settings.
 - `Offline Install` will only show when you have included a windows `install.wim` in the
 `OSDCloud\OS\` folder on your flashdrive (this is sometimes useful for on-the-go deployment).
 
+### GUI
 Now with working internet, the next page that shows is the OSDCloudGUI. Here you can choose whatever Edition, Language, and Dirver Pack you wish.
 
-IMAGE
+![image](https://github.com/user-attachments/assets/a1b94807-7f9d-4038-b0bb-cbf5e159d8cc)
 
 If a non-bitlocker `C:` drive with an exsisting windows install is present on the system, AutounattendGUI's Edition Select script will select the same edition currentl present on the `C:` drive (Unless you are using an Offline installer).
 
 With everything selected, click "Start"!
 
+### Confirmation
 The script will then ask you if the drive it's detected to install Windows on is valid.
 
-IMAGE
+![CeqRGrxJfbpWo6r0LAbE_](https://github.com/user-attachments/assets/79297cdd-5c73-4ad8-b0c2-c64fd157d467)
 
 if it is, reply `Y` to the prompt and hit `Enter`.
 
