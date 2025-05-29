@@ -98,7 +98,7 @@ if ($GUI_JSON) {
         Write-Output 'Copying Start-OSDCloudGUI.json...'
         $GuiJsonContent = (Get-Content -Raw -Path $GUI_JSON -ErrorAction 'Stop')
 
-        if ($GuiJsonContent -match 'AutounatendGUI') {
+        if (($GuiJsonContent -match 'AutounatendGUI') -and ($Language -ne 'en-us')) {
             $GuiJsonContent = $GuiJsonContent -replace '"OSLanguage": "en-us",', "`"OSLanguage`": `"$Language`","
             $GuiJsonContent = $GuiJsonContent -replace "(?sm)`"OSLanguageValues`": \[.*?],", "`"OSLanguageValues`": [`n    `"$Language`",`n    `"en-us`"`n  ],"
         }
