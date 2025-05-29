@@ -96,20 +96,11 @@ if (!$NoUpdateConfig) {
 if ($GUI_JSON) {
     if ((Test-Path -Path $GUI_JSON -ErrorAction SilentlyContinue)) {
         Write-Output 'Copying Start-OSDCloudGUI.json...'
-        $GuiJsonContent = (Get-Content -Path $GUI_JSON -ErrorAction 'Stop')
+        $GuiJsonContent = (Get-Content -Raw -Path $GUI_JSON -ErrorAction 'Stop')
 
         if ($GuiJsonContent -match 'AutounatendGUI') {
-            $GuiJsonContent = $GuiJsonContent -replace '"OSLanguage": "en-us",', """OSLanguage"": ""$Language"","
-            $GuiJsonContent = $GuiJsonContent -replace @'
-  "OSLanguageValues": [
-    "en-us"
-  ],
-'@, @"
-  "OSLanguageValues": [
-    "$Language",
-    "en-us"
-  ],
-"@
+            $GuiJsonContent = $GuiJsonContent -replace '"OSLanguage": "en-us",', "`"OSLanguage`": `"$Language`","
+            $GuiJsonContent = $GuiJsonContent -replace "(?sm)`"OSLanguageValues`": \[.*?],", "`"OSLanguageValues`": [`n    `"$Language`",`n    `"en-us`"`n  ],"
         }
 
         $GuiJsonContent = $GuiJsonContent.Clone() -replace 'AutounatendGUI', $Brand
