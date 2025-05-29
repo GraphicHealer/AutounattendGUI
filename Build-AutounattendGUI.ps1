@@ -96,7 +96,24 @@ if (!$NoUpdateConfig) {
 if ($GUI_JSON) {
     if ((Test-Path -Path $GUI_JSON -ErrorAction SilentlyContinue)) {
         Write-Output 'Copying Start-OSDCloudGUI.json...'
-        $GuiJsonContent = (Get-Content -Path $GUI_JSON -ErrorAction 'Stop') -replace 'AutounatendGUI', $Brand
+        $GuiJsonContent = (Get-Content -Path $GUI_JSON -ErrorAction 'Stop')
+
+        if ($GuiJsonContent -match 'AutounatendGUI') {
+            $GuiJsonContent = $GuiJsonContent -replace '"OSLanguage": "en-us",', """OSLanguage"": ""$Language"","
+            $GuiJsonContent = $GuiJsonContent -replace @'
+  "OSLanguageValues": [
+    "en-us"
+  ],
+'@, @"
+  "OSLanguageValues": [
+    "$Language",
+    "en-us"
+  ],
+"@
+        }
+
+        $GuiJsonContent = $GuiJsonContent.Clone() -replace 'AutounatendGUI', $Brand
+
         New-Item -Path "$OutPath\OSDCloud\Automate" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
         Set-Content -Path "$OutPath\OSDCloud\Automate\Start-OSDCloudGUI.json" -Force -Value $GuiJsonContent
     }
