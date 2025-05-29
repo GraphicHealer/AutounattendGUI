@@ -9,6 +9,20 @@ This is my particular OSDCloud setup, built into easy-to-deploy setup and build 
 
 Special thanks to the NinjaOne Community, some of the script functions and techniques are from the awesome people over there who were oh-so-patient with me learning PowerShell over the last year or so!
 
+
+## Table of Contents
+1. [Building an Image](#building-an-image)
+   1. [Getting Started](#getting-started)
+   2. [Setup](#setup)
+   3. [Prepare Files](#prepare-files)
+   4. [Build](#build)
+   5. [Custom/Existing Ventoy Setup](#customexisting-ventoy-setup)
+2. [Usage](#usage)
+3. [Troubleshooting](#troubleshooting)
+
+<hr />
+
+# Building an Image
 ## Getting started
 > [!IMPORTANT]
 > Please read through this entire README before starting. This helps cut down on confusion and misunderstanding.
@@ -139,6 +153,8 @@ When the script is done, it should tell you to copy the contents of `OutPath` (`
 3. **DO NOT** copy the `ventoy` folder in the `OutPath` **IF** you already have a custom `ventoy.json` setup. *It will overwrite that if you do.*
 4. If you do have a custom `ventoy.json`, look at this file for the relevant configuration you may want to add: [ventoy.json](Ventoy-Drive/ventoy/ventoy.json)
 
+<hr />
+
 # Usage
 
 ### Internet
@@ -171,6 +187,8 @@ if it is, reply `Y` to the prompt and hit `Enter`.
 Now OSDCloud, the setup scripts, and Autounattend.xml will do their magic!
 
 In a short time, you will have a fully-functioning Windows installation on your PC!
+
+<hr />
 
 # Troubleshooting
 If OSDCloudGUI is missing options in its dropdown, you may have a corrupted `Start-OSDCloudGUI.json` file.
