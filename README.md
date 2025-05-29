@@ -158,22 +158,22 @@ When the script is done, it should tell you to copy the contents of `OutPath` (`
 # Usage
 
 ### Internet
-When you boot the .wim file, it will load the system, and start preparing OSDCloud.
-If it detects that there is no internet connectivity, it wil pop this up:
+When you boot the .wim file, it will load the system and start preparing OSDCloud.
+If it detects that there is no internet connectivity, it will pop this up:
 
 ![image](https://github.com/user-attachments/assets/6793b3c6-ba9d-4902-a0b7-f8e3e13b3656)
 
 You can choose the option that works best for you.
-- `Enter Wifi Cerdentials` will only appear when you have set `WifiProfilePath` in the build settings.
-- `Offline Install` will only show when you have included a windows `install.wim` in the
-`OSDCloud\OS\` folder on your flashdrive (this is sometimes useful for on-the-go deployment).
+- `Enter Wifi Credentials` will only appear when you have set `WifiProfilePath` in the build settings.
+- `Offline Install` will only show when you have included a Windows `install.wim` in the
+`OSDCloud\OS\` folder on your flash drive (this is sometimes useful for on-the-go deployment).
 
 ### GUI
-Now with working internet, the next page that shows is the OSDCloudGUI. Here you can choose whatever Edition, Language, and Dirver Pack you wish.
+Now with working internet, the next page that shows is the OSDCloudGUI. Here you can choose whatever Edition, Language, and Driver Pack you wish.
 
 ![image](https://github.com/user-attachments/assets/a1b94807-7f9d-4038-b0bb-cbf5e159d8cc)
 
-If a non-bitlocker `C:` drive with an exsisting windows install is present on the system, AutounattendGUI's Edition Select script will select the same edition currentl present on the `C:` drive (Unless you are using an Offline installer).
+If a non-BitLocker `C:` drive with an existing windows install is present on the system, AutounattendGUI's Edition Select script will select the same edition currently present on the `C:` drive (Unless you are using an Offline installer).
 
 With everything selected, click "Start"!
 
@@ -186,7 +186,7 @@ if it is, reply `Y` to the prompt and hit `Enter`.
 
 Now OSDCloud, the setup scripts, and Autounattend.xml will do their magic!
 
-In a short time, you will have a fully-functioning Windows installation on your PC!
+In a short time, you will have a fully functioning Windows installation on your PC!
 
 <hr />
 
