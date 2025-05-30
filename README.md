@@ -1,5 +1,5 @@
 # OSD-AutounattendGUI
-This is my particular OSDCloud setup, built into easy-to-deploy setup and build scripts.
+An OSDCloud setup script that automatically embeds scripts to manage Autounattend.xml and add a couple GUI enhancements.
 
 > [!WARNING]
 > **This is designed to be used with Ventoy, the bootable flash drive swiss army knife. Please have a Ventoy flash drive prepared.**
@@ -8,7 +8,6 @@ This is my particular OSDCloud setup, built into easy-to-deploy setup and build 
 - https://www.ventoy.net
 
 Special thanks to the NinjaOne Community, some of the script functions and techniques are from the awesome people over there who were oh-so-patient with me learning PowerShell over the last year or so!
-
 
 ## Table of Contents
 1. [Building an Image](#building-an-image)
