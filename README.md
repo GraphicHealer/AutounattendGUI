@@ -40,20 +40,20 @@ The two main scripts are:
 
 Both `Setup-AutounattendGUI.ps1` and `Build-AutounattendGUI.ps1` use the same flags. Here is a breakdown of each:
 
-| Flag                      | Description                                                                                                                                             |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-WorkspacePath`          | The full path where OSDCloud will build its workspace and temporary files. This is where the Windows PE environment and necessary scripts are staged.   |
-| `-OutPath`                | The path where the completed output files (including the final `.wim`) will be saved. Typically, this is a directory you copy to your Ventoy USB drive. |
-| `-WimName`                | Filename (including `.wim` extension) to use for the final Windows Imaging file. This is the file that will be booted by Ventoy.                        |
-| `-WifiProfilePath` &nbsp; | (Optional) Path to a valid Windows Wi-Fi profile XML. Used to automatically connect to Wi-Fi from the WinPE environment.                                |
-| `-WallpaperPath`          | (Optional) Path to a `.jpg` image that will be used as the background wallpaper in Windows PE.                                                          |
-| `-Brand`                  | A custom name or label that is shown in Start-OSDCloudGUI and logs. Typically set to your company or project name.                                      |
-| `-DriverHWID`             | (Optional) An array of hardware IDs (e.g., `VID_2357&PID_011E`) that will trigger downloading and injecting specific drivers into the image.            |
-| `-AutounattendXML`        | Full path to a valid `Autounattend.xml` file. This file is automatically copied and used during the OS installation process.                            |
-| `-GUI_JSON`               | Full path to a customized `Start-OSDCloudGUI.json` file, which sets default values for the OSDCloud GUI options.                                        |
-| `-Language`               | Specifies the default language for Windows installation (e.g., `en-us`, `de-de`).                                                                       |
-| `-NoUpdateConfig`         | When set, the script will not update or create the `Settings.json` file. Useful for testing temporary changes without overwriting saved configurations. |
-| `-ConfigFile`             | (Optional) Path to a custom JSON configuration file containing all the above options. Overrides `Settings.json` if both are present.                    |
+| Flag                             | Description                                                                                                                                             |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `-WorkspacePath`                 | The full path where OSDCloud will build its workspace and temporary files. This is where the Windows PE environment and necessary scripts are staged.   |
+| `-OutPath`                       | The path where the completed output files (including the final `.wim`) will be saved. Typically, this is a directory you copy to your Ventoy USB drive. |
+| `-WimName`                       | Filename (including `.wim` extension) to use for the final Windows Imaging file. This is the file that will be booted by Ventoy.                        |
+| `-WifiProfilePath` &nbsp; &nbsp; | (Optional) Path to a valid Windows Wi-Fi profile XML. Used to automatically connect to Wi-Fi from the WinPE environment.                                |
+| `-WallpaperPath`                 | (Optional) Path to a `.jpg` image that will be used as the background wallpaper in Windows PE.                                                          |
+| `-Brand`                         | A custom name or label that is shown in Start-OSDCloudGUI and logs. Typically set to your company or project name.                                      |
+| `-DriverHWID`                    | (Optional) An array of hardware IDs (e.g., `VID_2357&PID_011E`) that will trigger downloading and injecting specific drivers into the image.            |
+| `-AutounattendXML`               | Full path to a valid `Autounattend.xml` file. This file is automatically copied and used during the OS installation process.                            |
+| `-GUI_JSON`                      | Full path to a customized `Start-OSDCloudGUI.json` file, which sets default values for the OSDCloud GUI options.                                        |
+| `-Language`                      | Specifies the default language for Windows installation (e.g., `en-us`, `de-de`).                                                                       |
+| `-NoUpdateConfig`                | When set, the script will not update or create the `Settings.json` file. Useful for testing temporary changes without overwriting saved configurations. |
+| `-ConfigFile`                    | (Optional) Path to a custom JSON configuration file containing all the above options. Overrides `Settings.json` if both are present.                    |
 
 Each of these options can be passed directly to the PowerShell scripts or included in your `Settings.json` file for convenience and reusability.
 
