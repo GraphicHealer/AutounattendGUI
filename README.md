@@ -21,8 +21,10 @@ Special thanks to the NinjaOne Community, some of the script functions and techn
    * [Prepare Files](#prepare-files)
    * [Build-AutounattendGUI.ps1](#build-autounattendguips1)
 2. [Install](#install)
-3. [Usage](#usage)
-4. [Troubleshooting](#troubleshooting)
+   * [New Ventoy Drive](#new-ventoy-drive)
+   * [Custom/Existing Ventoy Setup](#customexisting-ventoy-setup)
+4. [Usage](#usage)
+5. [Troubleshooting](#troubleshooting)
    * [Missing Menu Options](#missing-menu-options)
 
 <hr />
