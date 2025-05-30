@@ -143,6 +143,9 @@ Go back to the Admin Powershell window you have open, and run the following:
 ```powershell
 .\Build-AutounattendGUI.ps1 -ConfigFile .\MyOrgName-Settings.json
 ```
+
+## Install
+### New Ventoy Drive
 When the script is done, it should tell you to copy the contents of `OutPath` (`.\\MyOrgName\\Ventoy-Drive` in this example) to the root of your Ventoy flash drive (E.g.: `D:\`).
 
 > [!WARNING]
@@ -162,7 +165,7 @@ D:\
   '- 1_AutounattendGUI.wim
 ```
 
-## Custom/Existing Ventoy Setup
+### Custom/Existing Ventoy Setup
 > [!CAUTION]
 > This section is ONLY applicable if you already have an existing Ventoy setup.
 1. **MAKE SURE** the entire `OSDCloud\` folder in the Output folder is copied to the **ROOT** of your Ventoy drive's storage partition (E.g.: `D:\OSDCloud\`).
