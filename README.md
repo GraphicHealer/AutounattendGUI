@@ -148,6 +148,20 @@ When the script is done, it should tell you to copy the contents of `OutPath` (`
 > [!WARNING]
 > You will need to have the wimboot mode setup on your Ventoy drive, follow this page to set it up: https://www.ventoy.net/en/plugin_wimboot.html
 
+Here is the expected Folder Structure:
+```
+D:\
+  |- ventoy\
+  |   |- ventoy.json
+  |   '- ventoy_wimboot.img
+  |- OSDCloud\
+  |   |- Automate\
+  |   |   |- autounattend.xml
+  |   |   '- Start-OSDCloudGUI.json
+  |   '- OS\
+  '- 1_AutounattendGUI.wim
+```
+
 ## Custom/Existing Ventoy Setup
 > [!CAUTION]
 > This section is ONLY applicable if you already have an existing Ventoy setup.
