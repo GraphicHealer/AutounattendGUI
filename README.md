@@ -1,5 +1,5 @@
 # OSD-AutounattendGUI
-An OSDCloud setup script that automatically embeds custom scripts that and add GUI enhancements and inject Autounattend.xml into a Windows installation!
+A setup script for OSDCloud that automates its configuration, embeds custom scripts to inject an Autounattend.xml file into the Windows installation, and adds enhancements to the overall OSDCloud deployment process.
 
 > [!WARNING]
 > **This is designed to be used with Ventoy, the bootable flash drive swiss army knife. Please have a Ventoy flash drive prepared.**
