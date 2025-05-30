@@ -18,24 +18,12 @@ Special thanks to the NinjaOne Community, some of the script functions and techn
 1. [Build](#build)
    * [Script Options](#script-options)
    * [Setup](#setup)
-     * [ADK](#adk)
-     * [Git](#git)
-     * [Settings.json](#settingsjson)
-     * [Setup-AutounattendGUI.ps1](#setup-autounattendguips1)
-
    * [Prepare Files](#prepare-files)
    * [Build-AutounattendGUI.ps1](#build-autounattendguips1)
-
 2. [Install](#install)
-   * [New Ventoy Drive](#new-ventoy-drive)
-   * [Custom/Existing Ventoy Setup](#customexisting-ventoy-setup)
-
-2. [Usage](#usage)
-   * [Internet](#internet)
-   * [GUI](#gui)
-   * [Confirmation](#confirmation)
-
-3. [Troubleshooting](#troubleshooting)
+3. [Usage](#usage)
+4. [Troubleshooting](#troubleshooting)
+   * [Missing Menu Options](#missing-menu-options)
 
 <hr />
 
@@ -212,9 +200,10 @@ Windows will install with your custom Autounattend.xml and GUI settings.
 <hr />
 
 # Troubleshooting
+## Missing Menu Options
+If `Start-OSDCloudGUI.json` becomes corrupted, it can disable some menu options.
 
-If `Start-OSDCloudGUI.json` becomes corrupted:
-
+To fix it:
 1. Plug in your Ventoy drive to a working PC
 2. Navigate to `\OSDCloud\Automate\`
 3. Delete `Start-OSDCloudGUI.json`
