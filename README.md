@@ -58,6 +58,7 @@ Please use Windows 10 for your build environment, you can use a VM or a dedicate
 > 
 > I used the latest Windows 10 22H2.
 
+### ADK
 First, install ADK and ADK-WinPE:
 1. Go to https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install
 2. **MAKE SURE** to use **THIS** version of ADK and ADK-WinPE (Download both):
@@ -71,6 +72,7 @@ First, install ADK and ADK-WinPE:
 6. Once the ADK is finished installing, run ADK-WinPE. Just keep all the defaults and keep pressing next.
 7. Done!
 
+### Git
 Now, download the Git repo.
 Run the following in an Administrator PowerShell:
 ```powershell
@@ -79,7 +81,11 @@ cd .\AutounattendGUI\
 ```
 Leave the powershell window open, you will need it later.
 
-Next, open a copy of `Settings.json` in your favorite text editor (I recommend Notepad++).
+### Setings.Json
+Next, create a folder for our build. For this example, we'll use `MyOrgName\`
+
+Create a copy of `Settings.json` in the folder you just made (`MyOrgName\`). 
+Now open that new file in your favorite text editor (I recommend Notepad++).
 This is what you will see:
 ```json
 {
@@ -98,7 +104,8 @@ This is what you will see:
 }
 ```
 
-You will want to change some of the paths. For example:
+You will want to change some of the paths, to point to your new build directory.
+For example:
 ```json
 {
     "AutounattendXML": ".\\MyOrgName\\Autounattend.xml",
@@ -115,37 +122,37 @@ You will want to change some of the paths. For example:
     "WorkspacePath": ".\\MyOrgName\\AuGUI-Workspace"
 }
 ```
-Note how `MyOrgName` has been added to some of the paths, this will help you keep different builds separated.
+Save the new `Settings.json`.
 
-Save it under a new name, like `MyOrgName-Settings.json`
+> [!WARNING]
+> The paths in `Settings.json` ***MUST*** have `\\` instead of `\` for paths, as the JSON language interprets `\` as an "escape" character. (Ironically, typing `\\` escapes itself, lol.)
 
-Once you have `MyOrgName-Settings.json` setup, switch back to the Admin Powershell you left open, and run the following:
+### Setup-AutounattendGUI.ps1
+Once you have `MyOrgName\Settings.json` setup, switch back to the Admin Powershell you left open, and run the following:
 ```powershell
 Set-ExecutionPolicy Bypass # Set this so you can run the setup and build scripts
-.\Setup-AutounattendGUI.ps1 -ConfigFile .\MyOrgName-Settings.json
+.\Setup-AutounattendGUI.ps1 -ConfigFile .\MyOrgName\Settings.json
 ```
-This will run through and set up the Build Environment, getting it ready.
+This will run through and prepare the Build Environment.
 
 ## Prepare Files
-Next, create or find your `Autounattend.xml` file (I used this site to build one: https://schneegans.de/windows/unattend-generator/), and copy it to where your `MyOrgName-Settings.json` points to (`.\\MyOrgName\\Autounattend.xml` in this example).
+Next, obtain or create an `Autounattend.xml` file (I used this site to build one: https://schneegans.de/windows/unattend-generator/), and copy it to where your `MyOrgName\Settings.json` points to (`.\\MyOrgName\\Autounattend.xml` in this example).
 
-Then, you need to copy the file at `.\Build-Files\Start-OSDCloudGUI.json` to where your `MyOrgName-Settings.json` points (`.\\MyOrgName\\Start-OSDCloudGUI.json` in this example).
+Make a copy of `.\Build-Files\Start-OSDCloudGUI.json` in the `MyOrgName\` folder, then open `MyOrgName\Start-OSDCloudGUI.json` in your favorite editor (again, I reccommend Notepad++), and edit it using this tutorial: https://www.osdcloud.com/osdcloud-automate/osdcloudgui-defaults
 
-Edit the file accordingly, using this tutorial: https://www.osdcloud.com/osdcloud-automate/osdcloudgui-defaults
-
-If you set a custom wallpaper path, just make sure it's a `.jpg` file, and copy it to where your `MyOrgName-Settings.json` points.
+If you setup a custom wallpaper, just make sure it's a `.jpg` file, and copy it to where your `MyOrgName\Settings.json` points to.
 
 ## Build
 Once the `Setup-AutounattendGUI.ps1` has been run and the build files are in place, you can now build the image!
 
 Go back to the Admin Powershell window you have open, and run the following:
 ```powershell
-.\Build-AutounattendGUI.ps1 -ConfigFile .\MyOrgName-Settings.json
+.\Build-AutounattendGUI.ps1 -ConfigFile .\MyOrgName\Settings.json
 ```
 
 ## Install
 ### New Ventoy Drive
-When the script is done, it should tell you to copy the contents of `OutPath` (`.\\MyOrgName\\Ventoy-Drive` in this example) to the root of your Ventoy flash drive (E.g.: `D:\`).
+When the Build script is done, it should tell you to copy the contents of `OutPath` (`.\MyOrgName\Ventoy-Drive` in this example) to the root of your Ventoy flash drive (E.g.: `D:\`).
 
 > [!WARNING]
 > You will need to have the wimboot mode setup on your Ventoy drive, follow this page to set it up: https://www.ventoy.net/en/plugin_wimboot.html
