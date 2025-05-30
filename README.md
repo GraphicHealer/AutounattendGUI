@@ -56,6 +56,8 @@ Please use Windows 10 for your build environment, you can use a VM or a dedicate
 > You must have Windows 10 version 2004 (April 2020) or newer, you can check the version in `Settings > System > About`, as shown here:
 > <br />
 > ![image](https://github.com/user-attachments/assets/f289fe4b-c21b-4142-81a9-68bb6caea814)
+> 
+> I used the latest Windows 10 22H2.
 
 First, install ADK and ADK-WinPE:
 1. Go to https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install
