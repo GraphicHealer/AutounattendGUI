@@ -1,4 +1,4 @@
-# OSD-AutounattendGUI
+# AutounattendGUI
 
 A setup script for OSDCloud that automates its configuration, embeds custom scripts to inject an Autounattend.xml file into the Windows installation, and adds enhancements to the overall OSDCloud deployment process.
 
