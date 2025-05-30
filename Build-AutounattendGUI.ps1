@@ -9,6 +9,7 @@ param(
     [System.Collections.ArrayList]$DriverHWID,
     [string]$AutounattendXML,
     [string]$GUI_JSON,
+    [string]$Language,
     [switch]$NoUpdateConfig
 )
 
@@ -37,6 +38,7 @@ if (Test-Path -Path $ConfigFile -ErrorAction SilentlyContinue) {
     if (!$WimName) { $WimName = $ConfigJSON.WimName }
     if (!$AutounattendXML) { $AutounattendXML = $ConfigJSON.AutounattendXML }
     if (!$GUI_JSON) { $GUI_JSON = $ConfigJSON.GUI_JSON }
+    if (!$Language) { $Language = $ConfigJSON.Language }
 
     if (!$ConfigJSON.WorkspacePath -or !$ConfigJSON.OutPath) { $NoUpdateConfig = $false }
 }
@@ -49,6 +51,7 @@ if (!$WifiProfilePath) { $WifiProfilePath = $null }
 if (!$Brand) { $Brand = 'AutounattendGUI' }
 if (!$AutounattendXML) { $AutounattendXML = '.\Build-Files\Autounattend.xml' }
 if (!$GUI_JSON) { $GUI_JSON = '.\Build-Files\Start-OSDCloudGUI.json' }
+if (!$Language) { $Language = 'en-us' }
 
 $ConfigJSON = [PSCustomObject]@{
     Brand           = $Brand
@@ -58,6 +61,7 @@ $ConfigJSON = [PSCustomObject]@{
     WorkspacePath   = $WorkspacePath
     AutounattendXML = $AutounattendXML
     GUI_JSON        = $GUI_JSON
+    Language        = $Language
 }
 
 if ($WifiProfilePath) {
@@ -92,7 +96,15 @@ if (!$NoUpdateConfig) {
 if ($GUI_JSON) {
     if ((Test-Path -Path $GUI_JSON -ErrorAction SilentlyContinue)) {
         Write-Output 'Copying Start-OSDCloudGUI.json...'
-        $GuiJsonContent = (Get-Content -Path $GUI_JSON -ErrorAction 'Stop') -replace 'AutounatendGUI', $Brand
+        $GuiJsonContent = (Get-Content -Raw -Path $GUI_JSON -ErrorAction 'Stop')
+
+        if (($GuiJsonContent -match 'AutounatendGUI') -and ($Language -ne 'en-us')) {
+            $GuiJsonContent = $GuiJsonContent -replace '"OSLanguage": "en-us",', "`"OSLanguage`": `"$Language`","
+            $GuiJsonContent = $GuiJsonContent -replace "(?sm)`"OSLanguageValues`": \[.*?],", "`"OSLanguageValues`": [`n    `"$Language`",`n    `"en-us`"`n  ],"
+        }
+
+        $GuiJsonContent = $GuiJsonContent.Clone() -replace 'AutounatendGUI', $Brand
+
         New-Item -Path "$OutPath\OSDCloud\Automate" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
         Set-Content -Path "$OutPath\OSDCloud\Automate\Start-OSDCloudGUI.json" -Force -Value $GuiJsonContent
     }
