@@ -10,10 +10,10 @@ A setup script for OSDCloud that automates its configuration, embeds custom scri
 
 Special thanks to the NinjaOne Community, some of the script functions and techniques are from the awesome people over there who were oh-so-patient with me learning PowerShell over the last year or so!
 
-## Table of Contents
-
 > \[!IMPORTANT]
 > Please read through this entire README before starting. This helps cut down on confusion and misunderstanding.
+
+## Table of Contents
 
 1. [Build](#build)
    * [Script Options](#script-options)
