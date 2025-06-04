@@ -5,6 +5,10 @@ $OSDDrive = Get-PSDrive -PSProvider FileSystem | ForEach-Object {
     }
 } | Select-Object -First 1
 
+if (!$OSDDrive) {
+    $OSDDrive = 'X:\'
+}
+
 # Formats JSON in a nicer format than the built-in ConvertTo-Json does.
 function Format-Json([Parameter(Mandatory, ValueFromPipeline)][String] $json) {
     $indent = 0
@@ -22,7 +26,9 @@ $Hash = @{
     'Enterprise' = 6
 }
 
-Copy-Item -Path "$OSDDrive\OSDCloud\Automate\Start-OSDCloudGUI.json" -Destination "$OSDDrive\OSDCloud\Automate\Start-OSDCloudGUI.json.bak" -Force
+if (Test-Path -Path "$OSDDrive\OSDCloud\Automate\Start-OSDCloudGUI.json" -ErrorAction SilentlyContinue) {
+    Copy-Item -Path "$OSDDrive\OSDCloud\Automate\Start-OSDCloudGUI.json" -Destination "$OSDDrive\OSDCloud\Automate\Start-OSDCloudGUI.json.bak" -Force
+}
 
 try {
     reg load 'HKU\SystemRoot' 'C:\Windows\System32\config\SOFTWARE'
