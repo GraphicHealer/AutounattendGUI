@@ -41,6 +41,7 @@ if (Test-Path -Path $ConfigFile -ErrorAction SilentlyContinue) {
     if (!$GUI_JSON) { $GUI_JSON = $ConfigJSON.GUI_JSON }
     if (!$Language) { $Language = $ConfigJSON.Language }
     if (!$Mode) { $Mode = $ConfigJSON.Mode }
+    
     if (!$ConfigJSON.WorkspacePath -or !$ConfigJSON.OutPath) { $NoUpdateConfig = $false }
 }
 
