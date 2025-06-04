@@ -41,7 +41,7 @@ if (Test-Path -Path $ConfigFile -ErrorAction SilentlyContinue) {
     if (!$AutounattendXML) { $AutounattendXML = $ConfigJSON.AutounattendXML }
     if (!$GUI_JSON) { $GUI_JSON = $ConfigJSON.GUI_JSON }
     if (!$Language) { $Language = $ConfigJSON.Language }
-    if (!$Mode.IsPresent) { $Mode = $ConfigJSON.Mode }
+    if (!$Mode) { $Mode = $ConfigJSON.Mode }
 
     if (!$ConfigJSON.WorkspacePath -or !$ConfigJSON.OutPath) { $NoUpdateConfig = $false }
 }
@@ -55,6 +55,7 @@ if (!$Brand) { $Brand = 'AutounattendGUI' }
 if (!$AutounattendXML) { $AutounattendXML = '.\Build-Files\Autounattend.xml' }
 if (!$GUI_JSON) { $GUI_JSON = '.\Build-Files\Start-OSDCloudGUI.json' }
 if (!$Language) { $Language = 'en-us' }
+if (!$Mode) { $Mode = 'Drive' }
 
 $ConfigJSON = [PSCustomObject]@{
     Brand           = $Brand
