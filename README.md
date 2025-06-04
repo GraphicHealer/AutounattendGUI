@@ -148,6 +148,9 @@ Go back to the Admin Powershell window you have open, and run the following:
 .\Build-AutounattendGUI.ps1 -ConfigFile .\MyOrgName\Settings.json
 ```
 
+> \[!CAUTION]
+> **DO NOT STOP THIS COMMAND! YOU MUST WAIT FOR IT TO COMPLETE! IT CAN BREAK YOUR BUILD ENVIRONMENT, REQUIRING A FULL WINDOWS REINSTALL!**
+
 <hr />
 
 # Install
