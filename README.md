@@ -70,7 +70,7 @@ Each of these options (Except `-NoUpdateConfig` and `-ConfigFile`) can be passed
 
 | Flag         | Description                                                                                                                                                |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-AllInOne`  | Triggers a "All In One" build, which embeds the `Start-OSDCloud.json` and `Autounattend.xml` files into the `.wim` file, for easy use with tools like WSD. |
+| `-AllInOne`  | Triggers a "All In One" build, which embeds the `Start-OSDCloud.json` and `Autounattend.xml` files into the `.wim` file, for easy use with tools like WDS. |
 
 ## Setup
 
