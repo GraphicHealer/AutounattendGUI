@@ -110,6 +110,7 @@ if ($GUI_JSON) {
         $GuiJsonContent = $GuiJsonContent.Clone() -replace 'AutounatendGUI', $Brand
 
         if ($Mode -match 'AIO') {
+            Write-Output 'All-In-One Mode!'
             Set-Content -Path "$(Get-OSDCloudWorkspace)\Config\Scripts\Start-OSDCloudGUI.json" -Force -Value $GuiJsonContent
         } else {
             New-Item -Path "$OutPath\OSDCloud\Automate" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
@@ -122,6 +123,7 @@ if ($AutounattendXML) {
     if ((Test-Path -Path $AutounattendXML -ErrorAction SilentlyContinue)) {
         Write-Output 'Copying Autounattend.xml...'
         if ($Mode -match 'AIO') {
+            Write-Output 'All-In-One Mode!'
             Copy-Item -Path $AutounattendXML -Destination "$(Get-OSDCloudWorkspace)\Config\Scripts\Autounattend.xml" -Force -ErrorAction 'Stop'
         } else {
             New-Item -Path "$OutPath\OSDCloud\Automate" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
