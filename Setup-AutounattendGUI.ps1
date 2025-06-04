@@ -10,7 +10,7 @@ param(
     [string]$AutounattendXML,
     [string]$GUI_JSON,
     [string]$Language,
-    [switch]$Mode,
+    [string]$Mode,
     [switch]$NoUpdateConfig,
     [switch]$NoClean
 )
