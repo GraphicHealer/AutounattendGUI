@@ -32,7 +32,13 @@ try {
 } catch {
     $Edition = 'Professional'
 }
-$OSDCloudJSON = Get-Content -Path "$OSDDrive\OSDCloud\Automate\Start-OSDCloudGUI.json" | ConvertFrom-Json
+
+$OSDCloudJSONPath = "$OSDDrive\OSDCloud\Automate\Start-OSDCloudGUI.json"
+if (Test-Path -Path "$PSScriptRoot\Start-OSDCloudGUI.json" -ErrorAction SilentlyContinue) {
+    $OSDCloudJSONPath = "$PSScriptRoot\Start-OSDCloudGUI.json"
+}
+
+$OSDCloudJSON = Get-Content -Path $OSDCloudJSONPath | ConvertFrom-Json
 $OldEdition = $OSDCloudJSON.OSEdition
 
 if ($Edition -match 'Professional') { $Edition = 'Pro' }

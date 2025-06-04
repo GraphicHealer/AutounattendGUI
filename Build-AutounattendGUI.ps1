@@ -10,7 +10,8 @@ param(
     [string]$AutounattendXML,
     [string]$GUI_JSON,
     [string]$Language,
-    [switch]$NoUpdateConfig
+    [switch]$NoUpdateConfig,
+    [switch]$AllInOne
 )
 
 # Formats JSON in a nicer format than the built-in ConvertTo-Json does.
@@ -105,16 +106,24 @@ if ($GUI_JSON) {
 
         $GuiJsonContent = $GuiJsonContent.Clone() -replace 'AutounatendGUI', $Brand
 
-        New-Item -Path "$OutPath\OSDCloud\Automate" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
-        Set-Content -Path "$OutPath\OSDCloud\Automate\Start-OSDCloudGUI.json" -Force -Value $GuiJsonContent
+        if ($AllInOne) {
+            Set-Content -Path "$(Get-OSDCloudWorkspace)\Config\Scripts\Start-OSDCloudGUI.json" -Force -Value $GuiJsonContent
+        } else {
+            New-Item -Path "$OutPath\OSDCloud\Automate" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
+            Set-Content -Path "$OutPath\OSDCloud\Automate\Start-OSDCloudGUI.json" -Force -Value $GuiJsonContent
+        }
     }
 }
 
 if ($AutounattendXML) {
     if ((Test-Path -Path $AutounattendXML -ErrorAction SilentlyContinue)) {
         Write-Output 'Copying Autounattend.xml...'
-        New-Item -Path "$OutPath\OSDCloud\Automate" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
-        Copy-Item -Path $AutounattendXML -Destination "$OutPath\OSDCloud\Automate\Autounattend.xml" -Force -ErrorAction 'Stop'
+        if ($AllInOne) {
+            Copy-Item -Path $AutounattendXML -Destination "$(Get-OSDCloudWorkspace)\Config\Scripts\Autounattend.xml" -Force -ErrorAction 'Stop'
+        } else {
+            New-Item -Path "$OutPath\OSDCloud\Automate" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
+            Copy-Item -Path $AutounattendXML -Destination "$OutPath\OSDCloud\Automate\Autounattend.xml" -Force -ErrorAction 'Stop'
+        }
     }
 }
 

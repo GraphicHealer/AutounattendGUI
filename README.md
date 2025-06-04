@@ -15,17 +15,26 @@ Special thanks to the NinjaOne Community, some of the script functions and techn
 
 ## Table of Contents
 
-1. [Build](#build)
-   * [Script Options](#script-options)
-   * [Setup](#setup)
-   * [Prepare Files](#prepare-files)
-   * [Build-AutounattendGUI.ps1](#build-autounattendguips1)
-2. [Install](#install)
-   * [New Ventoy Drive](#new-ventoy-drive)
-   * [Custom/Existing Ventoy Setup](#customexisting-ventoy-setup)
-4. [Usage](#usage)
-5. [Troubleshooting](#troubleshooting)
-   * [Missing Menu Options](#missing-menu-options)
+- [AutounattendGUI](#autounattendgui)
+  - [Table of Contents](#table-of-contents)
+- [Build](#build)
+  - [Script Options](#script-options)
+  - [Setup](#setup)
+    - [ADK](#adk)
+    - [Git](#git)
+    - [Settings.json](#settingsjson)
+    - [Setup-AutounattendGUI.ps1](#setup-autounattendguips1)
+  - [Prepare Files](#prepare-files)
+  - [Build-AutounattendGUI.ps1](#build-autounattendguips1)
+- [Install](#install)
+  - [New Ventoy Drive](#new-ventoy-drive)
+  - [Custom/Existing Ventoy Setup](#customexisting-ventoy-setup)
+- [Usage](#usage)
+  - [Internet](#internet)
+  - [GUI](#gui)
+  - [Confirmation](#confirmation)
+- [Troubleshooting](#troubleshooting)
+  - [Missing Menu Options](#missing-menu-options)
 
 <hr />
 
@@ -38,7 +47,7 @@ The two main scripts are:
 1. **Setup-autounattendGUI.ps1** — Prepares the build environment.
 2. **Build-AutounattendGUI.ps1** — Builds or updates the `.wim` file.
 
-Both `Setup-AutounattendGUI.ps1` and `Build-AutounattendGUI.ps1` use the same flags. Here is a breakdown of each:
+Both `Setup-AutounattendGUI.ps1` and `Build-AutounattendGUI.ps1` use these same flags. Here is a breakdown of each:
 
 | Flag                             | Description                                                                                                                                             |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -55,7 +64,13 @@ Both `Setup-AutounattendGUI.ps1` and `Build-AutounattendGUI.ps1` use the same fl
 | `-NoUpdateConfig`                | When set, the script will not update or create the `Settings.json` file. Useful for testing temporary changes without overwriting saved configurations. |
 | `-ConfigFile`                    | (Optional) Path to a custom JSON configuration file containing all the above options. Overrides `Settings.json` if both are present.                    |
 
-Each of these options can be passed directly to the PowerShell scripts or included in your `Settings.json` file for convenience and reusability.
+Each of these options (Except `-NoUpdateConfig` and `-ConfigFile`) can be passed directly to the PowerShell scripts or included in your `Settings.json` file for convenience and reusability.
+
+`Build-AutounattendGUI.ps1` has one flag of it's own:
+
+| Flag         | Description                                                                                                                                                |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `-AllInOne`  | Triggers a "All In One" build, which embeds the `Start-OSDCloud.json` and `Autounattend.xml` files into the `.wim` file, for easy use with tools like WSD. |
 
 ## Setup
 
@@ -64,7 +79,7 @@ Each of these options can be passed directly to the PowerShell scripts or includ
 
 > \[!WARNING]
 > You must have Windows 10 version 2004 (April 2020) or newer.
-> 
+>
 > ![image](https://github.com/user-attachments/assets/f289fe4b-c21b-4142-81a9-68bb6caea814)
 
 ### ADK

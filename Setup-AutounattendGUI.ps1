@@ -65,26 +65,6 @@ $ConfigJSON = [PSCustomObject]@{
     Language        = $Language
 }
 
-if (!(Test-Path -Path $WorkspacePath -ErrorAction SilentlyContinue)) {
-    New-Item -Path $WorkspacePath -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
-}
-
-if (!(Test-Path -Path $OutPath -ErrorAction SilentlyContinue)) {
-    New-Item -Path $OutPath -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
-}
-
-if (!(Test-Path -Path "$OutPath\OSDCloud" -ErrorAction SilentlyContinue)) {
-    New-Item -Path "$OutPath\OSDCloud" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
-}
-
-if (!(Test-Path -Path "$OutPath\OSDCloud\Automate" -ErrorAction SilentlyContinue)) {
-    New-Item -Path "$OutPath\OSDCloud\Automate" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
-}
-
-if (!(Test-Path -Path "$OutPath\OSDCloud\OS" -ErrorAction SilentlyContinue)) {
-    New-Item -Path "$OutPath\OSDCloud\OS" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
-}
-
 if ($WifiProfilePath) {
     if (!(Test-Path -Path $WifiProfilePath -ErrorAction SilentlyContinue)) {
         Write-Error "WifiProfilePath: '$WifiProfilePath' does not exist!"
@@ -111,6 +91,27 @@ if (!$NoUpdateConfig) {
     New-Item -Path $ConfigFile -Force -ErrorAction 'Stop' | Out-Null
     Set-Content -Path $ConfigFile -Value ($ConfigJSON | ConvertTo-Json -Depth 10 | Format-Json )
     Write-Output "Config saved to '$ConfigFile'"
+}
+
+# Verify Paths
+if (!(Test-Path -Path $WorkspacePath -ErrorAction SilentlyContinue)) {
+    New-Item -Path $WorkspacePath -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
+}
+
+if (!(Test-Path -Path $OutPath -ErrorAction SilentlyContinue)) {
+    New-Item -Path $OutPath -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
+}
+
+if (!(Test-Path -Path "$OutPath\OSDCloud" -ErrorAction SilentlyContinue)) {
+    New-Item -Path "$OutPath\OSDCloud" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
+}
+
+if (!(Test-Path -Path "$OutPath\OSDCloud\Automate" -ErrorAction SilentlyContinue)) {
+    New-Item -Path "$OutPath\OSDCloud\Automate" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
+}
+
+if (!(Test-Path -Path "$OutPath\OSDCloud\OS" -ErrorAction SilentlyContinue)) {
+    New-Item -Path "$OutPath\OSDCloud\OS" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
 }
 
 # Install the OSD module
