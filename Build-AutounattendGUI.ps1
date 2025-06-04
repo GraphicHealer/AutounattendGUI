@@ -10,8 +10,8 @@ param(
     [string]$AutounattendXML,
     [string]$GUI_JSON,
     [string]$Language,
-    [switch]$NoUpdateConfig,
-    [switch]$AllInOne
+    [switch]$AllInOne,
+    [switch]$NoUpdateConfig
 )
 
 # Formats JSON in a nicer format than the built-in ConvertTo-Json does.
@@ -40,6 +40,7 @@ if (Test-Path -Path $ConfigFile -ErrorAction SilentlyContinue) {
     if (!$AutounattendXML) { $AutounattendXML = $ConfigJSON.AutounattendXML }
     if (!$GUI_JSON) { $GUI_JSON = $ConfigJSON.GUI_JSON }
     if (!$Language) { $Language = $ConfigJSON.Language }
+    if (!$AllInOne.IsPresent) { $AllInOne = $ConfigJSON.AllInOne }
 
     if (!$ConfigJSON.WorkspacePath -or !$ConfigJSON.OutPath) { $NoUpdateConfig = $false }
 }
@@ -63,6 +64,7 @@ $ConfigJSON = [PSCustomObject]@{
     AutounattendXML = $AutounattendXML
     GUI_JSON        = $GUI_JSON
     Language        = $Language
+    AllInOne        = $AllInOne
 }
 
 if ($WifiProfilePath) {
