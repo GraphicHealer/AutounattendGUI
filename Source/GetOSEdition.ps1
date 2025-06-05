@@ -64,5 +64,6 @@ if (($Edition -ne $OldEdition) -and $Edition -ne $null) {
         $OSDCloudJSON.OSImageIndex = $Hash[$Edition]
     }
 
+    New-Item -Path "$OSDDrive\OSDCloud\Automate" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
     $OSDCloudJSON | ConvertTo-Json -Depth 10 | Format-Json | Set-Content -Path "$OSDDrive\OSDCloud\Automate\Start-OSDCloudGUI.json" -Force
 }
