@@ -11,13 +11,13 @@ if ($OSDDrive) {
     $CustomUnattend = "$OSDDrive\OSDCloud\Automate\autounattend.xml"  # Path to custom unattend
     $PantherUnattend = 'C:\Windows\Panther\unattend.xml'              # Destination path in Panther folder
 
-    if (Test-Path -Path "$PSScriptRoot\autounattend.xml" -ErrorAction SilentlyContinue) {
-        $CustomUnattend = "$PSScriptRoot\autounattend.xml"
+    if (Test-Path -Path "$PSScriptRoot\..\autounattend.xml" -ErrorAction SilentlyContinue) {
+        $CustomUnattend = "$PSScriptRoot\..\autounattend.xml"
     }
 
     # Check if the custom unattend file exists
     if (Test-Path $CustomUnattend) {
-        Write-Output 'Copying custom autounattend.xml to the Windows Panther folder...'
+        Write-Output "Copying $CustomUnattend to $PantherUnattend..."
 
         # Ensure the Panther folder exists
         if (!(Test-Path 'C:\Windows\Panther')) {
