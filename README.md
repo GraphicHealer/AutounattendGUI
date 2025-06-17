@@ -61,6 +61,8 @@ Each of these options can be passed directly to the PowerShell scripts or includ
 
 > \[!CAUTION]
 > **!!!THIS MUST BE RUN ON WINDOWS 10!!!**
+>
+> As stated here: https://www.osdcloud.com/osdcloud/setup#machine-configuration, Windows 11's PE environment is not compatible with several key devices and drivers. Windows 10's PE environment is, so OSDCloud recommends it.
 
 > \[!WARNING]
 > You must have Windows 10 version 2004 (April 2020) or newer.
