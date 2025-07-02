@@ -14,6 +14,8 @@ set "onHashErr=download"
 
 set "fileSetup=%~dp0setup.exe"
 if exist "%fileSetup%" goto file_check;
+set "fileSetup=%windir%\Setup\setup.exe"
+if exist "%fileSetup%" goto file_check;
 set "fileSetup=%tmp%\setup.exe"
 if exist "%fileSetup%" goto file_check;
 
