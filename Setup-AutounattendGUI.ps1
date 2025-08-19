@@ -10,6 +10,7 @@ param(
     [string]$AutounattendXML,
     [string]$GUI_JSON,
     [string]$Language,
+    [string]$Mode,
     [switch]$NoUpdateConfig,
     [switch]$NoClean
 )
@@ -40,6 +41,7 @@ if (Test-Path -Path $ConfigFile -ErrorAction SilentlyContinue) {
     if (!$AutounattendXML) { $AutounattendXML = $ConfigJSON.AutounattendXML }
     if (!$GUI_JSON) { $GUI_JSON = $ConfigJSON.GUI_JSON }
     if (!$Language) { $Language = $ConfigJSON.Language }
+    if (!$Mode) { $Mode = $ConfigJSON.Mode }
 
     if (!$ConfigJSON.WorkspacePath -or !$ConfigJSON.OutPath) { $NoUpdateConfig = $false }
 }
@@ -53,6 +55,7 @@ if (!$Brand) { $Brand = 'AutounattendGUI' }
 if (!$AutounattendXML) { $AutounattendXML = '.\Build-Files\Autounattend.xml' }
 if (!$GUI_JSON) { $GUI_JSON = '.\Build-Files\Start-OSDCloudGUI.json' }
 if (!$Language) { $Language = 'en-us' }
+if (!$Mode) { $Mode = 'Drive' }
 
 $ConfigJSON = [PSCustomObject]@{
     Brand           = $Brand
@@ -63,26 +66,7 @@ $ConfigJSON = [PSCustomObject]@{
     AutounattendXML = $AutounattendXML
     GUI_JSON        = $GUI_JSON
     Language        = $Language
-}
-
-if (!(Test-Path -Path $WorkspacePath -ErrorAction SilentlyContinue)) {
-    New-Item -Path $WorkspacePath -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
-}
-
-if (!(Test-Path -Path $OutPath -ErrorAction SilentlyContinue)) {
-    New-Item -Path $OutPath -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
-}
-
-if (!(Test-Path -Path "$OutPath\OSDCloud" -ErrorAction SilentlyContinue)) {
-    New-Item -Path "$OutPath\OSDCloud" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
-}
-
-if (!(Test-Path -Path "$OutPath\OSDCloud\Automate" -ErrorAction SilentlyContinue)) {
-    New-Item -Path "$OutPath\OSDCloud\Automate" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
-}
-
-if (!(Test-Path -Path "$OutPath\OSDCloud\OS" -ErrorAction SilentlyContinue)) {
-    New-Item -Path "$OutPath\OSDCloud\OS" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
+    Mode            = $Mode
 }
 
 if ($WifiProfilePath) {
@@ -111,6 +95,27 @@ if (!$NoUpdateConfig) {
     New-Item -Path $ConfigFile -Force -ErrorAction 'Stop' | Out-Null
     Set-Content -Path $ConfigFile -Value ($ConfigJSON | ConvertTo-Json -Depth 10 | Format-Json )
     Write-Output "Config saved to '$ConfigFile'"
+}
+
+# Verify Paths
+if (!(Test-Path -Path $WorkspacePath -ErrorAction SilentlyContinue)) {
+    New-Item -Path $WorkspacePath -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
+}
+
+if (!(Test-Path -Path $OutPath -ErrorAction SilentlyContinue)) {
+    New-Item -Path $OutPath -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
+}
+
+if (!(Test-Path -Path "$OutPath\OSDCloud" -ErrorAction SilentlyContinue)) {
+    New-Item -Path "$OutPath\OSDCloud" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
+}
+
+if (!(Test-Path -Path "$OutPath\OSDCloud\Automate" -ErrorAction SilentlyContinue)) {
+    New-Item -Path "$OutPath\OSDCloud\Automate" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
+}
+
+if (!(Test-Path -Path "$OutPath\OSDCloud\OS" -ErrorAction SilentlyContinue)) {
+    New-Item -Path "$OutPath\OSDCloud\OS" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
 }
 
 # Install the OSD module

@@ -7,6 +7,7 @@
     ],
     "GUI_JSON": ".\\Build-Files\\Start-OSDCloudGUI.json",
     "Language": "en-us",
+    "Mode": "Drive",
     "OutPath": ".\\Ventoy-Drive",
     "WallpaperPath": ".\\Build-Files\\Wallpaper.jpg",
     "WimName": "1_AutounattendGUI.wim",

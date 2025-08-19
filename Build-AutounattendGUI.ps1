@@ -10,6 +10,7 @@ param(
     [string]$AutounattendXML,
     [string]$GUI_JSON,
     [string]$Language,
+    [string]$Mode,
     [switch]$NoUpdateConfig
 )
 
@@ -39,7 +40,8 @@ if (Test-Path -Path $ConfigFile -ErrorAction SilentlyContinue) {
     if (!$AutounattendXML) { $AutounattendXML = $ConfigJSON.AutounattendXML }
     if (!$GUI_JSON) { $GUI_JSON = $ConfigJSON.GUI_JSON }
     if (!$Language) { $Language = $ConfigJSON.Language }
-
+    if (!$Mode) { $Mode = $ConfigJSON.Mode }
+    
     if (!$ConfigJSON.WorkspacePath -or !$ConfigJSON.OutPath) { $NoUpdateConfig = $false }
 }
 
@@ -52,6 +54,7 @@ if (!$Brand) { $Brand = 'AutounattendGUI' }
 if (!$AutounattendXML) { $AutounattendXML = '.\Build-Files\Autounattend.xml' }
 if (!$GUI_JSON) { $GUI_JSON = '.\Build-Files\Start-OSDCloudGUI.json' }
 if (!$Language) { $Language = 'en-us' }
+if (!$Mode) { $Mode = 'Drive' }
 
 $ConfigJSON = [PSCustomObject]@{
     Brand           = $Brand
@@ -62,6 +65,7 @@ $ConfigJSON = [PSCustomObject]@{
     AutounattendXML = $AutounattendXML
     GUI_JSON        = $GUI_JSON
     Language        = $Language
+    Mode            = $Mode
 }
 
 if ($WifiProfilePath) {
@@ -105,16 +109,26 @@ if ($GUI_JSON) {
 
         $GuiJsonContent = $GuiJsonContent.Clone() -replace 'AutounatendGUI', $Brand
 
-        New-Item -Path "$OutPath\OSDCloud\Automate" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
-        Set-Content -Path "$OutPath\OSDCloud\Automate\Start-OSDCloudGUI.json" -Force -Value $GuiJsonContent
+        if ($Mode -match 'AIO') {
+            Write-Output 'All-In-One Mode!'
+            Set-Content -Path "$(Get-OSDCloudWorkspace)\Config\Scripts\Start-OSDCloudGUI.json" -Force -Value $GuiJsonContent
+        } else {
+            New-Item -Path "$OutPath\OSDCloud\Automate" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
+            Set-Content -Path "$OutPath\OSDCloud\Automate\Start-OSDCloudGUI.json" -Force -Value $GuiJsonContent
+        }
     }
 }
 
 if ($AutounattendXML) {
     if ((Test-Path -Path $AutounattendXML -ErrorAction SilentlyContinue)) {
         Write-Output 'Copying Autounattend.xml...'
-        New-Item -Path "$OutPath\OSDCloud\Automate" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
-        Copy-Item -Path $AutounattendXML -Destination "$OutPath\OSDCloud\Automate\Autounattend.xml" -Force -ErrorAction 'Stop'
+        if ($Mode -match 'AIO') {
+            Write-Output 'All-In-One Mode!'
+            Copy-Item -Path $AutounattendXML -Destination "$(Get-OSDCloudWorkspace)\Config\Scripts\Autounattend.xml" -Force -ErrorAction 'Stop'
+        } else {
+            New-Item -Path "$OutPath\OSDCloud\Automate" -ItemType Directory -Force -ErrorAction 'Stop' | Out-Null
+            Copy-Item -Path $AutounattendXML -Destination "$OutPath\OSDCloud\Automate\Autounattend.xml" -Force -ErrorAction 'Stop'
+        }
     }
 }
 

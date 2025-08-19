@@ -15,17 +15,26 @@ Special thanks to the NinjaOne Community, some of the script functions and techn
 
 ## Table of Contents
 
-1. [Build](#build)
-   * [Script Options](#script-options)
-   * [Setup](#setup)
-   * [Prepare Files](#prepare-files)
-   * [Build-AutounattendGUI.ps1](#build-autounattendguips1)
-2. [Install](#install)
-   * [New Ventoy Drive](#new-ventoy-drive)
-   * [Custom/Existing Ventoy Setup](#customexisting-ventoy-setup)
-4. [Usage](#usage)
-5. [Troubleshooting](#troubleshooting)
-   * [Missing Menu Options](#missing-menu-options)
+- [AutounattendGUI](#autounattendgui)
+  - [Table of Contents](#table-of-contents)
+- [Build](#build)
+  - [Script Options](#script-options)
+  - [Setup](#setup)
+    - [ADK](#adk)
+    - [Git](#git)
+    - [Settings.json](#settingsjson)
+    - [Setup-AutounattendGUI.ps1](#setup-autounattendguips1)
+  - [Prepare Files](#prepare-files)
+  - [Build-AutounattendGUI.ps1](#build-autounattendguips1)
+- [Install](#install)
+  - [New Ventoy Drive](#new-ventoy-drive)
+  - [Custom/Existing Ventoy Setup](#customexisting-ventoy-setup)
+- [Usage](#usage)
+  - [Internet](#internet)
+  - [GUI](#gui)
+  - [Confirmation](#confirmation)
+- [Troubleshooting](#troubleshooting)
+  - [Missing Menu Options](#missing-menu-options)
 
 <hr />
 
@@ -38,24 +47,25 @@ The two main scripts are:
 1. **Setup-autounattendGUI.ps1** — Prepares the build environment.
 2. **Build-AutounattendGUI.ps1** — Builds or updates the `.wim` file.
 
-Both `Setup-AutounattendGUI.ps1` and `Build-AutounattendGUI.ps1` use the same flags. Here is a breakdown of each:
+Both `Setup-AutounattendGUI.ps1` and `Build-AutounattendGUI.ps1` use these same flags. Here is a breakdown of each:
 
-| Flag                             | Description                                                                                                                                             |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-WorkspacePath`                 | The full path where OSDCloud will build its workspace and temporary files. This is where the Windows PE environment and necessary scripts are staged.   |
-| `-OutPath`                       | The path where the completed output files (including the final `.wim`) will be saved. Typically, this is a directory you copy to your Ventoy USB drive. |
-| `-WimName`                       | Filename (including `.wim` extension) to use for the final Windows Imaging file. This is the file that will be booted by Ventoy.                        |
-| `-WifiProfilePath` &nbsp; &nbsp; | (Optional) Path to a valid Windows Wi-Fi profile XML. Used to automatically connect to Wi-Fi from the WinPE environment.                                |
-| `-WallpaperPath`                 | (Optional) Path to a `.jpg` image that will be used as the background wallpaper in Windows PE.                                                          |
-| `-Brand`                         | A custom name or label that is shown in Start-OSDCloudGUI and logs. Typically set to your company or project name.                                      |
-| `-DriverHWID`                    | (Optional) An array of hardware IDs (e.g., `VID_2357&PID_011E`) that will trigger downloading and injecting specific drivers into the image.            |
-| `-AutounattendXML`               | Full path to a valid `Autounattend.xml` file. This file is automatically copied and used during the OS installation process.                            |
-| `-GUI_JSON`                      | Full path to a customized `Start-OSDCloudGUI.json` file, which sets default values for the OSDCloud GUI options.                                        |
-| `-Language`                      | Specifies the default language for Windows installation (e.g., `en-us`, `de-de`).                                                                       |
-| `-NoUpdateConfig`                | When set, the script will not update or create the `Settings.json` file. Useful for testing temporary changes without overwriting saved configurations. |
-| `-ConfigFile`                    | (Optional) Path to a custom JSON configuration file containing all the above options. Overrides `Settings.json` if both are present.                    |
+| Flag                             | Description                                                                                                                                                                     |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `-WorkspacePath`                 | The full path where OSDCloud will build its workspace and temporary files. This is where the Windows PE environment and necessary scripts are staged.                           |
+| `-OutPath`                       | The path where the completed output files (including the final `.wim`) will be saved. Typically, this is a directory you copy to your Ventoy USB drive.                         |
+| `-WimName`                       | Filename (including `.wim` extension) to use for the final Windows Imaging file. This is the file that will be booted by Ventoy.                                                |
+| `-WifiProfilePath` &nbsp; &nbsp; | (Optional) Path to a valid Windows Wi-Fi profile XML. Used to automatically connect to Wi-Fi from the WinPE environment.                                                        |
+| `-WallpaperPath`                 | (Optional) Path to a `.jpg` image that will be used as the background wallpaper in Windows PE.                                                                                  |
+| `-Brand`                         | A custom name or label that is shown in Start-OSDCloudGUI and logs. Typically set to your company or project name.                                                              |
+| `-DriverHWID`                    | (Optional) An array of hardware IDs (e.g., `VID_2357&PID_011E`) that will trigger downloading and injecting specific drivers into the image.                                    |
+| `-AutounattendXML`               | Full path to a valid `Autounattend.xml` file. This file is automatically copied and used during the OS installation process.                                                    |
+| `-GUI_JSON`                      | Full path to a customized `Start-OSDCloudGUI.json` file, which sets default values for the OSDCloud GUI options.                                                                |
+| `-Language`                      | Specifies the default language for Windows installation (e.g., `en-us`, `de-de`).                                                                                               |
+| `-NoUpdateConfig`                | When set, the script will not update or create the `Settings.json` file. Useful for testing temporary changes without overwriting saved configurations.                         |
+| `-ConfigFile`                    | (Optional) Path to a custom JSON configuration file containing all the above options. Overrides `Settings.json` if both are present.                                            |
+| `-Mode`                          | Setting this to `AIO` Triggers a "All In One" build, which embeds the `Start-OSDCloud.json` and `Autounattend.xml` files into the `.wim` file for easy use with tools like WDS. |
 
-Each of these options can be passed directly to the PowerShell scripts or included in your `Settings.json` file for convenience and reusability.
+Each of these options (Except `-NoUpdateConfig` and `-ConfigFile`) can be passed directly to the PowerShell scripts or included in your `Settings.json` file for convenience and reusability.
 
 ## Setup
 
@@ -66,7 +76,7 @@ Each of these options can be passed directly to the PowerShell scripts or includ
 
 > \[!WARNING]
 > You must have Windows 10 version 2004 (April 2020) or newer.
-> 
+>
 > ![image](https://github.com/user-attachments/assets/f289fe4b-c21b-4142-81a9-68bb6caea814)
 
 ### ADK
@@ -94,7 +104,27 @@ Leave the powershell window open, you will need it later.
 
 ### Settings.json
 
-Create a folder for your build (e.g. `MyOrgName\`), copy `Settings.json` into it, and edit paths like this:
+Create a folder for your build (e.g. `MyOrgName\`), and copy `Settings.json` into it, and open the copy in your favorite editor (I recommend `Notepad++`).
+
+You will see this:
+```json
+{
+    "AutounattendXML": ".\\Build-Files\\Autounattend.xml",
+    "Brand": "AutounattendGUI",
+    "DriverHWID": [
+        "VID_2357&PID_011E",
+        "VID_17E9&PID_4307"
+    ],
+    "GUI_JSON": ".\\Build-Files\\Start-OSDCloudGUI.json",
+    "Language": "en-us",
+    "Mode": "Drive",
+    "OutPath": ".\\Ventoy-Drive",
+    "WallpaperPath": ".\\Build-Files\\Wallpaper.jpg",
+    "WimName": "1_AutounattendGUI.wim",
+    "WorkspacePath": ".\\AuGUI-Workspace"
+}
+```
+Change the paths to include the new folder you setup:
 
 ```json
 {
@@ -106,13 +136,13 @@ Create a folder for your build (e.g. `MyOrgName\`), copy `Settings.json` into it
     ],
     "GUI_JSON": ".\\MyOrgName\\Start-OSDCloudGUI.json",
     "Language": "en-us",
+    "Mode": "Drive",
     "OutPath": ".\\MyOrgName\\Ventoy-Drive",
     "WallpaperPath": ".\\Build-Files\\Wallpaper.jpg",
     "WimName": "1_AutounattendGUI.wim",
     "WorkspacePath": ".\\MyOrgName\\AuGUI-Workspace"
 }
 ```
-
 > \[!WARNING]
 > You must use double backslashes (`\\`) in paths. This is a JSON spec requirement.
 
@@ -122,18 +152,22 @@ Switch back to the Admin Powershell you left open, and run the following:
 Set-ExecutionPolicy Bypass
 .\Setup-AutounattendGUI.ps1 -ConfigFile .\MyOrgName\Settings.json
 ```
+This will setup your build environment.
 
 ## Prepare Files
 
-* Generate `Autounattend.xml` from [https://schneegans.de/windows/unattend-generator/](https://schneegans.de/windows/unattend-generator/)
-* Copy and edit `Start-OSDCloudGUI.json` using [https://www.osdcloud.com/osdcloud-automate/osdcloudgui-defaults](https://www.osdcloud.com/osdcloud-automate/osdcloudgui-defaults)
-* If you setup a custom wallpaper, Copy your `.jpg` wallpaper file to the path in `Settings.json`
+1. Generate `Autounattend.xml` from [https://schneegans.de/windows/unattend-generator/](https://schneegans.de/windows/unattend-generator/), and copy it to `.\MyOrgName\Autounattend.xml`
+2. Copy `Start-OSDCloudGUI.json` to `.\MyOrgName\Start-OSDCloudGUI.json`, and open it in your favorite editor. Follow this guide to set it up correctly: [https://www.osdcloud.com/osdcloud-automate/osdcloudgui-defaults](https://www.osdcloud.com/osdcloud-automate/osdcloudgui-defaults)
+3. If you setup a custom wallpaper, Copy your `.jpg` wallpaper file to the path in `Settings.json`
 
 ## Build-AutounattendGUI.ps1
-Go back to the Admin Powershell window you have open, and run the following:
+Go back to the Admin Powershell window you have open, and run the following (replacing `MyOrgName`):
 ```powershell
 .\Build-AutounattendGUI.ps1 -ConfigFile .\MyOrgName\Settings.json
 ```
+
+> \[!CAUTION]
+> **DO NOT STOP THIS COMMAND! YOU MUST WAIT FOR IT TO COMPLETE! IT CAN BREAK YOUR BUILD ENVIRONMENT, REQUIRING A FULL WINDOWS REINSTALL!**
 
 <hr />
 
